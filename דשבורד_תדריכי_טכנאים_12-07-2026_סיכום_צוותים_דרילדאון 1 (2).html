@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>דשבורד תדריכי טכנאים</title>
+<style>
+:root{--blue:#1e5bff;--blue2:#eaf1ff;--yellow:#f7b500;--yellow2:#fff6d6;--ink:#172033;--bg:#f6f8fb;--green:#14804a;--red:#bb1d3a;--orange:#b45309;}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,'Segoe UI',sans-serif;color:var(--ink);background:var(--bg)}
+header{padding:28px 36px;background:linear-gradient(135deg,#111827,#1f4e78);color:white}h1{margin:0 0 8px;font-size:30px}.legend{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0 0}.legend span{padding:6px 10px;border-radius:999px;font-size:13px;background:white;color:#111827}
+main{padding:24px 36px 60px}.section-title{margin:28px 0 12px;font-size:22px}.hint{margin:0 0 14px;color:#4b5563;font-size:14px}.grid{display:grid;grid-template-columns:repeat(4,minmax(220px,1fr));gap:16px}.card{background:#fff;border-radius:18px;padding:18px;box-shadow:0 5px 16px rgba(15,23,42,.08);border-top:6px solid #ddd}.card.home{border-color:var(--blue);background:linear-gradient(180deg,#fff,var(--blue2))}.card.contractor{border-color:var(--yellow);background:linear-gradient(180deg,#fff,var(--yellow2))}.card-title{font-weight:700;min-height:40px}.big{font-size:40px;font-weight:800;margin:12px 0 6px}.meta{color:#374151;line-height:1.6}
+.tables{display:grid;grid-template-columns:1fr;gap:18px}.table-wrap{background:#fff;padding:14px;border-radius:16px;box-shadow:0 5px 16px rgba(15,23,42,.06);overflow:auto;margin-bottom:18px;border-top:6px solid #ddd}.table-wrap.home{border-color:var(--blue)}.table-wrap.contractor{border-color:var(--yellow)}.table-title{font-weight:800;font-size:18px;margin:4px 0 12px}
+table{border-collapse:collapse;width:100%;min-width:720px}th,td{padding:10px 12px;border-bottom:1px solid #e5e7eb;text-align:right;vertical-align:middle}th{background:#1f4e78;color:#fff;position:sticky;top:0}.summary-row{cursor:pointer}.summary-row:hover td{background:#f9fafb}.summary-row.open td{background:#eef6ff}.chev{display:inline-block;margin-left:8px;transition:transform .15s ease;font-weight:800}.summary-row.open .chev{transform:rotate(-90deg)}.pill{display:inline-block;min-width:70px;text-align:center;padding:5px 9px;border-radius:999px;font-weight:700}.pill.good{background:#dcfce7;color:var(--green)}.pill.mid{background:#fef3c7;color:var(--orange)}.pill.bad{background:#fee2e2;color:var(--red)}
+.drill-row{display:none}.drill-row td{background:#fbfdff;padding:0 12px 14px}.drill-wrap{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:14px 0}.drill-card{border:1px solid #e5e7eb;border-radius:16px;background:white;overflow:hidden}.drill-title{font-weight:800;padding:12px 14px;background:#f3f4f6}.drill-columns{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}.namebox{border-radius:12px;padding:12px;background:#f9fafb;line-height:1.5}.namebox h4{margin:0 0 8px;font-size:15px}.entered{border-right:5px solid #14804a}.missing{border-right:5px solid #bb1d3a}.names{margin:0;padding-right:18px}.names li{margin:3px 0}.empty{color:#6b7280}
+footer{padding:22px 36px;color:#6b7280;font-size:13px}@media(max-width:1000px){.grid{grid-template-columns:1fr 1fr}.drill-wrap{grid-template-columns:1fr}}@media(max-width:700px){main,header{padding:20px}.grid{grid-template-columns:1fr}.drill-columns{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <h1>דשבורד תדריכי טכנאים</h1>
+  <div class="legend"><span>🔵 טכני בית</span><span>🟡 טכני קבלן</span></div>
+</header>
+<main>
+  <h2 class="section-title">KPI לפי תדריך</h2>
+  <div class="grid">
+    <div class="card home"><div class="card-title">תדריך טכנאים 02.07.26 - בית</div><div class="big">74.5%</div><div class="meta">מצבה: <b>141</b> · נכנסו: <b>105</b> · לא נכנסו: <b>36</b></div></div>
+    <div class="card home"><div class="card-title">תדריך טכנאים (בית) 07.07.26</div><div class="big">72.3%</div><div class="meta">מצבה: <b>141</b> · נכנסו: <b>102</b> · לא נכנסו: <b>39</b></div></div>
+    <div class="card contractor"><div class="card-title">תדריך טכנאים 02.07.26 - קבלן</div><div class="big">64.1%</div><div class="meta">מצבה: <b>156</b> · נכנסו: <b>100</b> · לא נכנסו: <b>56</b></div></div>
+    <div class="card contractor"><div class="card-title">תדריך טכנאים (קבלן) 06.07.26</div><div class="big">52.6%</div><div class="meta">מצבה: <b>156</b> · נכנסו: <b>82</b> · לא נכנסו: <b>74</b></div></div>
+  </div>
+
+  <h2 class="section-title">סיכום אחוז כניסות לפי צוות</h2>
+  <p class="hint">לחצי על שורת צוות כדי לפתוח מתחתיה Drill Down עם פירוט מי נכנס ומי לא נכנס בכל תדריך.</p>
+  <div class="tables">
+    <div class="table-wrap home">
+      <div class="table-title">טכני בית</div>
+      <table>
+        <thead><tr><th>צוות</th><th>מצבה</th><th>תדריך 02.07</th><th>תדריך 07.07</th></tr></thead>
+        <tbody>
+          
+        <tr class="summary-row" onclick="toggleDrill('home-0', this)" title="לחצי לפתיחת פירוט נכנסו / לא נכנסו">
+          <td><span class="chev">▸</span>באר שבע, אשקלון</td>
+          <td>21</td>
+          <td><span class="pill mid">71.4%</span></td>
+          <td><span class="pill mid">66.7%</span></td>
+        </tr>
+        <tr id="home-0" class="drill-row">
+          <td colspan="4"><div class="drill-wrap">
+          <div class="drill-card">
+            <div class="drill-title">תדריך 02.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אולג טקצ&#x27;וק</li><li>אוריאל אפלאלו</li><li>איציק וויינגולסקי</li><li>אלכסנדר קיגל</li><li>אנדריי טלפין</li><li>דוד אסולין</li><li>דמיטרי אנטוסייב</li><li>דמיטרי קולסניק</li><li>חיים איצקוביץ</li><li>מיכאל סנדלר</li><li>עידו זכות</li><li>ערן אפריאט</li><li>ראמי אלריאטי</li><li>שלום לוי</li><li>שמואל משיחוב</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אפרים פוזיילוב</li><li>ארז אזולאי</li><li>יואב כץ</li><li>יוגב אזרד</li><li>יעקב דהן</li><li>מתן אבו</li></ul></div>
+            </div>
+          </div>
+
+          <div class="drill-card">
+            <div class="drill-title">תדריך 07.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אולג טקצ&#x27;וק</li><li>אוריאל אפלאלו</li><li>איציק וויינגולסקי</li><li>אלכסנדר קיגל</li><li>דוד אסולין</li><li>דמיטרי קולסניק</li><li>חיים איצקוביץ</li><li>מיכאל סנדלר</li><li>מתן אבו</li><li>עידו זכות</li><li>ערן אפריאט</li><li>ראמי אלריאטי</li><li>שלום לוי</li><li>שמואל משיחוב</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אנדריי טלפין</li><li>אפרים פוזיילוב</li><li>ארז אזולאי</li><li>דמיטרי אנטוסייב</li><li>יואב כץ</li><li>יוגב אזרד</li><li>יעקב דהן</li></ul></div>
+            </div>
+          </div></div></td>
+        </tr>
+
+        <tr class="summary-row" onclick="toggleDrill('home-1', this)" title="לחצי לפתיחת פירוט נכנסו / לא נכנסו">
+          <td><span class="chev">▸</span>גליל גולן</td>
+          <td>20</td>
+          <td><span class="pill mid">70.0%</span></td>
+          <td><span class="pill mid">70.0%</span></td>
+        </tr>
+        <tr id="home-1" class="drill-row">
+          <td colspan="4"><div class="drill-wrap">
+          <div class="drill-card">
+            <div class="drill-title">תדריך 02.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אלי מזרחי</li><li>בשארה חוראני</li><li>זאהר אבו נסרה</li><li>טארק חמדון</li><li>ליאור טיירי</li><li>מוחמד חאסכיה</li><li>מוחמד עבד אל ג&#x27;ני</li><li>מחמד דחאברה</li><li>מיכאל אמת</li><li>סלאח אלדין עבד אל קאדר</li><li>סרגיי בר</li><li>עלי יוסף עלי ח&#x27;טיב</li><li>שמואל ממן</li><li>תאופיק עואבדי</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אחמד ח&#x27;טיב</li><li>הרצל כהן</li><li>יהב אבו</li><li>מיכאל איטח</li><li>מיכאל סבג</li><li>סאלי מימון שריקי</li></ul></div>
+            </div>
+          </div>
+
+          <div class="drill-card">
+            <div class="drill-title">תדריך 07.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אלי מזרחי</li><li>בשארה חוראני</li><li>זאהר אבו נסרה</li><li>טארק חמדון</li><li>ליאור טיירי</li><li>מוחמד חאסכיה</li><li>מוחמד עבד אל ג&#x27;ני</li><li>מחמד דחאברה</li><li>מיכאל אמת</li><li>סלאח אלדין עבד אל קאדר</li><li>סרגיי בר</li><li>עלי יוסף עלי ח&#x27;טיב</li><li>שמואל ממן</li><li>תאופיק עואבדי</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אחמד ח&#x27;טיב</li><li>הרצל כהן</li><li>יהב אבו</li><li>מיכאל איטח</li><li>מיכאל סבג</li><li>סאלי מימון שריקי</li></ul></div>
+            </div>
+          </div></div></td>
+        </tr>
+
+        <tr class="summary-row" onclick="toggleDrill('home-2', this)" title="לחצי לפתיחת פירוט נכנסו / לא נכנסו">
+          <td><span class="chev">▸</span>גליל מערבי</td>
+          <td>18</td>
+          <td><span class="pill good">83.3%</span></td>
+          <td><span class="pill good">83.3%</span></td>
+        </tr>
+        <tr id="home-2" class="drill-row">
+          <td colspan="4"><div class="drill-wrap">
+          <div class="drill-card">
+            <div class="drill-title">תדריך 02.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>איתי כהן</li><li>באסל מיערי</li><li>ג&#x27;ורג&#x27; רישא</li><li>גיא אמזלג</li><li>וליד חטיב</li><li>יוסף חיון</li><li>ישי יעיש ביטון</li><li>משה ישראל שצקי</li><li>עלא סבאח</li><li>רפי יאחיאייב</li><li>שאול פאול פרידמן</li><li>שלום אליהו בנשימול</li><li>שמעון בן חמו</li><li>תאמר חמוד</li><li>תמיר אסולין</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אברהם פרייזלר</li><li>חי חיים חריר</li><li>פאוזי אבו יונס</li></ul></div>
+            </div>
+          </div>
+
+          <div class="drill-card">
+            <div class="drill-title">תדריך 07.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>איתי כהן</li><li>באסל מיערי</li><li>ג&#x27;ורג&#x27; רישא</li><li>גיא אמזלג</li><li>וליד חטיב</li><li>יוסף חיון</li><li>ישי יעיש ביטון</li><li>משה ישראל שצקי</li><li>עלא סבאח</li><li>רפי יאחיאייב</li><li>שאול פאול פרידמן</li><li>שלום אליהו בנשימול</li><li>שמעון בן חמו</li><li>תאמר חמוד</li><li>תמיר אסולין</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אברהם פרייזלר</li><li>חי חיים חריר</li><li>פאוזי אבו יונס</li></ul></div>
+            </div>
+          </div></div></td>
+        </tr>
+
+        <tr class="summary-row" onclick="toggleDrill('home-3', this)" title="לחצי לפתיחת פירוט נכנסו / לא נכנסו">
+          <td><span class="chev">▸</span>חדרה-נתניה</td>
+          <td>14</td>
+          <td><span class="pill good">92.9%</span></td>
+          <td><span class="pill good">92.9%</span></td>
+        </tr>
+        <tr id="home-3" class="drill-row">
+          <td colspan="4"><div class="drill-wrap">
+          <div class="drill-card">
+            <div class="drill-title">תדריך 02.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אור כתר</li><li>אחמד שרקאוי</li><li>אסמרה עלמו</li><li>ברק עסיס</li><li>דמיטרי נייגורוב</li><li>ולדימיר שלמייב</li><li>יונתן בעדש</li><li>מאגדי עבד אל גני</li><li>מקסים סטרובויטוב</li><li>מתן אהרוני</li><li>נדב מישאל</li><li>עמית קליימן יאגודייב</li><li>שמחה יצחק</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>יבגני אנטוסייב</li></ul></div>
+            </div>
+          </div>
+
+          <div class="drill-card">
+            <div class="drill-title">תדריך 07.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אור כתר</li><li>אחמד שרקאוי</li><li>אסמרה עלמו</li><li>ברק עסיס</li><li>דמיטרי נייגורוב</li><li>ולדימיר שלמייב</li><li>יונתן בעדש</li><li>מאגדי עבד אל גני</li><li>מקסים סטרובויטוב</li><li>מתן אהרוני</li><li>נדב מישאל</li><li>עמית קליימן יאגודייב</li><li>שמחה יצחק</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>יבגני אנטוסייב</li></ul></div>
+            </div>
+          </div></div></td>
+        </tr>
+
+        <tr class="summary-row" onclick="toggleDrill('home-4', this)" title="לחצי לפתיחת פירוט נכנסו / לא נכנסו">
+          <td><span class="chev">▸</span>ירושלים</td>
+          <td>11</td>
+          <td><span class="pill good">81.8%</span></td>
+          <td><span class="pill good">90.9%</span></td>
+        </tr>
+        <tr id="home-4" class="drill-row">
+          <td colspan="4"><div class="drill-wrap">
+          <div class="drill-card">
+            <div class="drill-title">תדריך 02.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אור דניאל אמזלג</li><li>ולרי חיטרי</li><li>יוסף חיים ברוך</li><li>יוסף עבדול סלאם</li><li>יחיא אל חטיב</li><li>מאיר נטף</li><li>נתנאל עובדיה מזרחי</li><li>עיצאם עותמאן</li><li>שגיא שם טוב</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>ניר ששון</li><li>שי עזרא</li></ul></div>
+            </div>
+          </div>
+
+          <div class="drill-card">
+            <div class="drill-title">תדריך 07.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אור דניאל אמזלג</li><li>ולרי חיטרי</li><li>יוסף חיים ברוך</li><li>יוסף עבדול סלאם</li><li>יחיא אל חטיב</li><li>מאיר נטף</li><li>נתנאל עובדיה מזרחי</li><li>עיצאם עותמאן</li><li>שגיא שם טוב</li><li>שי עזרא</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>ניר ששון</li></ul></div>
+            </div>
+          </div></div></td>
+        </tr>
+
+        <tr class="summary-row" onclick="toggleDrill('home-5', this)" title="לחצי לפתיחת פירוט נכנסו / לא נכנסו">
+          <td><span class="chev">▸</span>לב השרון</td>
+          <td>13</td>
+          <td><span class="pill mid">69.2%</span></td>
+          <td><span class="pill mid">69.2%</span></td>
+        </tr>
+        <tr id="home-5" class="drill-row">
+          <td colspan="4"><div class="drill-wrap">
+          <div class="drill-card">
+            <div class="drill-title">תדריך 02.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אבירם ברוך</li><li>איציק אטרי</li><li>אלי לאוטה</li><li>אלעד לוי</li><li>משה אזולאי</li><li>משה שדה</li><li>ניקולאי סצ&#x27;קוב</li><li>עמרי אלאלוף</li><li>צחי יפרח</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אליאור גדז&#x27;</li><li>גיא רובינשטיין</li><li>מולונך בלאי</li><li>עדיאל שמחה איתן טרבלסי</li></ul></div>
+            </div>
+          </div>
+
+          <div class="drill-card">
+            <div class="drill-title">תדריך 07.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אבירם ברוך</li><li>איציק אטרי</li><li>אלי לאוטה</li><li>אלעד לוי</li><li>משה אזולאי</li><li>משה שדה</li><li>ניקולאי סצ&#x27;קוב</li><li>עמרי אלאלוף</li><li>צחי יפרח</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אליאור גדז&#x27;</li><li>גיא רובינשטיין</li><li>מולונך בלאי</li><li>עדיאל שמחה איתן טרבלסי</li></ul></div>
+            </div>
+          </div></div></td>
+        </tr>
+
+        <tr class="summary-row" onclick="toggleDrill('home-6', this)" title="לחצי לפתיחת פירוט נכנסו / לא נכנסו">
+          <td><span class="chev">▸</span>פתח תקווה</td>
+          <td>15</td>
+          <td><span class="pill good">86.7%</span></td>
+          <td><span class="pill mid">73.3%</span></td>
+        </tr>
+        <tr id="home-6" class="drill-row">
+          <td colspan="4"><div class="drill-wrap">
+          <div class="drill-card">
+            <div class="drill-title">תדריך 02.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אבי אסרס</li><li>אלי ששון</li><li>אלירן דוד שלמה סוטו</li><li>אמיר שרון</li><li>יוגב כהן</li><li>יצחק פלס</li><li>לוטם אוסמן</li><li>ליאל אליהו יונה</li><li>לירון מנקין</li><li>מחמוד גבארה</li><li>ניר שאבו</li><li>עידן נתנאל גרון</li><li>רזיאל סקה</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>חי כהן</li><li>צבי דרך</li></ul></div>
+            </div>
+          </div>
+
+          <div class="drill-card">
+            <div class="drill-title">תדריך 07.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אלי ששון</li><li>אלירן דוד שלמה סוטו</li><li>אמיר שרון</li><li>יוגב כהן</li><li>יצחק פלס</li><li>לוטם אוסמן</li><li>ליאל אליהו יונה</li><li>לירון מנקין</li><li>ניר שאבו</li><li>עידן נתנאל גרון</li><li>רזיאל סקה</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אבי אסרס</li><li>חי כהן</li><li>מחמוד גבארה</li><li>צבי דרך</li></ul></div>
+            </div>
+          </div></div></td>
+        </tr>
+
+        <tr class="summary-row" onclick="toggleDrill('home-7', this)" title="לחצי לפתיחת פירוט נכנסו / לא נכנסו">
+          <td><span class="chev">▸</span>ראשון לציון, אשדוד</td>
+          <td>16</td>
+          <td><span class="pill mid">56.2%</span></td>
+          <td><span class="pill mid">56.2%</span></td>
+        </tr>
+        <tr id="home-7" class="drill-row">
+          <td colspan="4"><div class="drill-wrap">
+          <div class="drill-card">
+            <div class="drill-title">תדריך 02.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אושרי סקה</li><li>איתי רוזנצבט</li><li>אלכסיי נורינסקי</li><li>בסיק גאורגיאן</li><li>דניאל בוגומולוב</li><li>יעקב לוי</li><li>מני לוי</li><li>נאור נחום מורדוך</li><li>רחמים אליהו</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אביחי כלאף</li><li>אלכסנדר בנימינוב</li><li>יגאל קורנבליט</li><li>מתן מלכה</li><li>נתנאל קליף עשור</li><li>רועי רוי בינו</li><li>שחר ביטון</li></ul></div>
+            </div>
+          </div>
+
+          <div class="drill-card">
+            <div class="drill-title">תדריך 07.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אושרי סקה</li><li>איתי רוזנצבט</li><li>אלכסיי נורינסקי</li><li>בסיק גאורגיאן</li><li>דניאל בוגומולוב</li><li>יעקב לוי</li><li>מני לוי</li><li>נאור נחום מורדוך</li><li>רחמים אליהו</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אביחי כלאף</li><li>אלכסנדר בנימינוב</li><li>יגאל קורנבליט</li><li>מתן מלכה</li><li>נתנאל קליף עשור</li><li>רועי רוי בינו</li><li>שחר ביטון</li></ul></div>
+            </div>
+          </div></div></td>
+        </tr>
+
+        <tr class="summary-row" onclick="toggleDrill('home-8', this)" title="לחצי לפתיחת פירוט נכנסו / לא נכנסו">
+          <td><span class="chev">▸</span>רמלה, לוד</td>
+          <td>13</td>
+          <td><span class="pill mid">61.5%</span></td>
+          <td><span class="pill mid">53.8%</span></td>
+        </tr>
+        <tr id="home-8" class="drill-row">
+          <td colspan="4"><div class="drill-wrap">
+          <div class="drill-card">
+            <div class="drill-title">תדריך 02.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אילן מקונן</li><li>אלמוג אזקיאל</li><li>ארסן יעקובוב</li><li>בנימין מור</li><li>דוד חזן</li><li>מור מרדכי כדרוך</li><li>מנשה שלומי אברהם</li><li>עלי גאבר</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אברהם אלפנדרי</li><li>אריאל כהן</li><li>ברק דרסו</li><li>יוסף יהודה בן חרש</li><li>נדב-צבי גוטרמן</li></ul></div>
+            </div>
+          </div>
+
+          <div class="drill-card">
+            <div class="drill-title">תדריך 07.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אילן מקונן</li><li>אלמוג אזקיאל</li><li>ארסן יעקובוב</li><li>בנימין מור</li><li>דוד חזן</li><li>מור מרדכי כדרוך</li><li>עלי גאבר</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אברהם אלפנדרי</li><li>אריאל כהן</li><li>ברק דרסו</li><li>יוסף יהודה בן חרש</li><li>מנשה שלומי אברהם</li><li>נדב-צבי גוטרמן</li></ul></div>
+            </div>
+          </div></div></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-wrap contractor">
+      <div class="table-title">טכני קבלן</div>
+      <table>
+        <thead><tr><th>צוות</th><th>מצבה</th><th>תדריך 02.07</th><th>תדריך 06.07</th></tr></thead>
+        <tbody>
+          
+        <tr class="summary-row" onclick="toggleDrill('contractor-0', this)" title="לחצי לפתיחת פירוט נכנסו / לא נכנסו">
+          <td><span class="chev">▸</span>צוות בינטק באר שבע ואילת</td>
+          <td>12</td>
+          <td><span class="pill mid">75.0%</span></td>
+          <td><span class="pill mid">75.0%</span></td>
+        </tr>
+        <tr id="contractor-0" class="drill-row">
+          <td colspan="4"><div class="drill-wrap">
+          <div class="drill-card">
+            <div class="drill-title">תדריך 02.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>איגור גבר</li><li>אמין אלנסאסה</li><li>אסף מועלם</li><li>דאסלין מוצ&#x27;יה</li><li>יקיר בורפקר</li><li>מאיר חג&#x27;ג&#x27;</li><li>מקסים שניידר</li><li>סרגיי פדיסקו</li><li>תמיר חיון</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>מחמד נסאסרה</li><li>נאור דרעי</li><li>סברי נסאסארה</li></ul></div>
+            </div>
+          </div>
+
+          <div class="drill-card">
+            <div class="drill-title">תדריך 06.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>איגור גבר</li><li>אמין אלנסאסה</li><li>אסף מועלם</li><li>דאסלין מוצ&#x27;יה</li><li>יקיר בורפקר</li><li>מאיר חג&#x27;ג&#x27;</li><li>מקסים שניידר</li><li>סרגיי פדיסקו</li><li>תמיר חיון</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>מחמד נסאסרה</li><li>נאור דרעי</li><li>סברי נסאסארה</li></ul></div>
+            </div>
+          </div></div></td>
+        </tr>
+
+        <tr class="summary-row" onclick="toggleDrill('contractor-1', this)" title="לחצי לפתיחת פירוט נכנסו / לא נכנסו">
+          <td><span class="chev">▸</span>צוות בינטק ירושלים</td>
+          <td>11</td>
+          <td><span class="pill good">81.8%</span></td>
+          <td><span class="pill mid">72.7%</span></td>
+        </tr>
+        <tr id="contractor-1" class="drill-row">
+          <td colspan="4"><div class="drill-wrap">
+          <div class="drill-card">
+            <div class="drill-title">תדריך 02.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אחמד סעיד</li><li>אליהו מזרחי-</li><li>מג&#x27;ד חסונה</li><li>מואייד דענע</li><li>מתן עיני</li><li>נור דקידק</li><li>עבד אבו ג&#x27;רביה</li><li>עיסא קוואסמה</li><li>עמרי שריקי</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>דוד בן עוזיאל</li><li>עלאא דענא</li></ul></div>
+            </div>
+          </div>
+
+          <div class="drill-card">
+            <div class="drill-title">תדריך 06.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אחמד סעיד</li><li>אליהו מזרחי-</li><li>מג&#x27;ד חסונה</li><li>מואייד דענע</li><li>מתן עיני</li><li>נור דקידק</li><li>עבד אבו ג&#x27;רביה</li><li>עיסא קוואסמה</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>דוד בן עוזיאל</li><li>עלאא דענא</li><li>עמרי שריקי</li></ul></div>
+            </div>
+          </div></div></td>
+        </tr>
+
+        <tr class="summary-row" onclick="toggleDrill('contractor-2', this)" title="לחצי לפתיחת פירוט נכנסו / לא נכנסו">
+          <td><span class="chev">▸</span>צוות בינטק כנות</td>
+          <td>14</td>
+          <td><span class="pill mid">57.1%</span></td>
+          <td><span class="pill mid">57.1%</span></td>
+        </tr>
+        <tr id="contractor-2" class="drill-row">
+          <td colspan="4"><div class="drill-wrap">
+          <div class="drill-card">
+            <div class="drill-title">תדריך 02.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אבי סרידו</li><li>אבירם ונונו</li><li>בן מריאנובסקי</li><li>ולדימיר ז&#x27;ילין</li><li>חן אלחנן קינן</li><li>יהונתן עקיבא</li><li>יורי חיימוב</li><li>תאיר מיכאל</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אוראל אביב</li><li>אייל אביטל</li><li>דורון יעקב ניסימוב</li><li>כפיר ונונו</li><li>משה מלכה -</li><li>שי אוהד</li></ul></div>
+            </div>
+          </div>
+
+          <div class="drill-card">
+            <div class="drill-title">תדריך 06.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אבי סרידו</li><li>אבירם ונונו</li><li>בן מריאנובסקי</li><li>ולדימיר ז&#x27;ילין</li><li>חן אלחנן קינן</li><li>יהונתן עקיבא</li><li>יורי חיימוב</li><li>תאיר מיכאל</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אוראל אביב</li><li>אייל אביטל</li><li>דורון יעקב ניסימוב</li><li>כפיר ונונו</li><li>משה מלכה -</li><li>שי אוהד</li></ul></div>
+            </div>
+          </div></div></td>
+        </tr>
+
+        <tr class="summary-row" onclick="toggleDrill('contractor-3', this)" title="לחצי לפתיחת פירוט נכנסו / לא נכנסו">
+          <td><span class="chev">▸</span>צוות בראוו צפון</td>
+          <td>15</td>
+          <td><span class="pill good">80.0%</span></td>
+          <td><span class="pill bad">40.0%</span></td>
+        </tr>
+        <tr id="contractor-3" class="drill-row">
+          <td colspan="4"><div class="drill-wrap">
+          <div class="drill-card">
+            <div class="drill-title">תדריך 02.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אביתר חזן</li><li>אברהים סראון</li><li>אמיר נסיראת</li><li>יוסי קוריאט</li><li>ליא שרים</li><li>מוחמד אגבריה</li><li>מורן יעקב</li><li>מחמוד עסאמנה</li><li>סלמאן קורדאב</li><li>עיסאם כיואן</li><li>פהד עספור</li><li>רוברטו חזן</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>בשאר חטיב</li><li>מוניר ואדי</li><li>סרגיי קוקלב</li></ul></div>
+            </div>
+          </div>
+
+          <div class="drill-card">
+            <div class="drill-title">תדריך 06.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אביתר חזן</li><li>יוסי קוריאט</li><li>מוחמד אגבריה</li><li>מורן יעקב</li><li>עיסאם כיואן</li><li>פהד עספור</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אברהים סראון</li><li>אמיר נסיראת</li><li>בשאר חטיב</li><li>ליא שרים</li><li>מוניר ואדי</li><li>מחמוד עסאמנה</li><li>סלמאן קורדאב</li><li>סרגיי קוקלב</li><li>רוברטו חזן</li></ul></div>
+            </div>
+          </div></div></td>
+        </tr>
+
+        <tr class="summary-row" onclick="toggleDrill('contractor-4', this)" title="לחצי לפתיחת פירוט נכנסו / לא נכנסו">
+          <td><span class="chev">▸</span>צוות בראוו שרון</td>
+          <td>15</td>
+          <td><span class="pill mid">66.7%</span></td>
+          <td><span class="pill bad">46.7%</span></td>
+        </tr>
+        <tr id="contractor-4" class="drill-row">
+          <td colspan="4"><div class="drill-wrap">
+          <div class="drill-card">
+            <div class="drill-title">תדריך 02.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אמיר כיואן</li><li>ארטיום ריבקין</li><li>חיים מרדכי ויטריול</li><li>לואי אבו חלה</li><li>לירון מיזם</li><li>מוחמד חליל מובאשר</li><li>מוחמד כריים</li><li>עבד עיראקי</li><li>עמרי חסן</li><li>רון פליישמן</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>חאלד סעד</li><li>טארק עומר</li><li>מוהנד ח&#x27;טיב</li><li>סוהייב עומר</li><li>רסלאן שרים</li></ul></div>
+            </div>
+          </div>
+
+          <div class="drill-card">
+            <div class="drill-title">תדריך 06.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אמיר כיואן</li><li>חיים מרדכי ויטריול</li><li>לירון מיזם</li><li>מוחמד חליל מובאשר</li><li>מוחמד כריים</li><li>עבד עיראקי</li><li>עמרי חסן</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>ארטיום ריבקין</li><li>חאלד סעד</li><li>טארק עומר</li><li>לואי אבו חלה</li><li>מוהנד ח&#x27;טיב</li><li>סוהייב עומר</li><li>רון פליישמן</li><li>רסלאן שרים</li></ul></div>
+            </div>
+          </div></div></td>
+        </tr>
+
+        <tr class="summary-row" onclick="toggleDrill('contractor-5', this)" title="לחצי לפתיחת פירוט נכנסו / לא נכנסו">
+          <td><span class="chev">▸</span>צוות ג.מ.י השרון והסביבה</td>
+          <td>13</td>
+          <td><span class="pill bad">46.2%</span></td>
+          <td><span class="pill bad">38.5%</span></td>
+        </tr>
+        <tr id="contractor-5" class="drill-row">
+          <td colspan="4"><div class="drill-wrap">
+          <div class="drill-card">
+            <div class="drill-title">תדריך 02.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אכרם עויסאת</li><li>אלון טייב</li><li>גיאהד עיסי</li><li>וליד כבהא</li><li>חי פרץ</li><li>מולוגטה יהואלשט</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אביאל בן מוחה</li><li>אמיר גרבאן</li><li>אסף יוסף חנגאדי</li><li>אריאל הדד</li><li>יהונתן מאיר מוסרי</li><li>נועם בן סימון</li><li>עובדיה חנניה כהן</li></ul></div>
+            </div>
+          </div>
+
+          <div class="drill-card">
+            <div class="drill-title">תדריך 06.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אכרם עויסאת</li><li>גיאהד עיסי</li><li>וליד כבהא</li><li>חי פרץ</li><li>מולוגטה יהואלשט</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אביאל בן מוחה</li><li>אלון טייב</li><li>אמיר גרבאן</li><li>אסף יוסף חנגאדי</li><li>אריאל הדד</li><li>יהונתן מאיר מוסרי</li><li>נועם בן סימון</li><li>עובדיה חנניה כהן</li></ul></div>
+            </div>
+          </div></div></td>
+        </tr>
+
+        <tr class="summary-row" onclick="toggleDrill('contractor-6', this)" title="לחצי לפתיחת פירוט נכנסו / לא נכנסו">
+          <td><span class="chev">▸</span>צוות ג.מ.י ווילות</td>
+          <td>10</td>
+          <td><span class="pill mid">50.0%</span></td>
+          <td><span class="pill mid">50.0%</span></td>
+        </tr>
+        <tr id="contractor-6" class="drill-row">
+          <td colspan="4"><div class="drill-wrap">
+          <div class="drill-card">
+            <div class="drill-title">תדריך 02.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>בן צריקאר</li><li>דודי לוי</li><li>ודיע ריזק</li><li>ירון אצילדייב</li><li>נביל אבו מוך</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אחמד מצרי</li><li>אלירן זיקרי</li><li>יחיא פינטו</li><li>מאיר סבג</li><li>מגד פרוגה</li></ul></div>
+            </div>
+          </div>
+
+          <div class="drill-card">
+            <div class="drill-title">תדריך 06.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>בן צריקאר</li><li>דודי לוי</li><li>ודיע ריזק</li><li>ירון אצילדייב</li><li>נביל אבו מוך</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אחמד מצרי</li><li>אלירן זיקרי</li><li>יחיא פינטו</li><li>מאיר סבג</li><li>מגד פרוגה</li></ul></div>
+            </div>
+          </div></div></td>
+        </tr>
+
+        <tr class="summary-row" onclick="toggleDrill('contractor-7', this)" title="לחצי לפתיחת פירוט נכנסו / לא נכנסו">
+          <td><span class="chev">▸</span>צוות השחר מרכז</td>
+          <td>9</td>
+          <td><span class="pill bad">22.2%</span></td>
+          <td><span class="pill bad">11.1%</span></td>
+        </tr>
+        <tr id="contractor-7" class="drill-row">
+          <td colspan="4"><div class="drill-wrap">
+          <div class="drill-card">
+            <div class="drill-title">תדריך 02.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>יקיר הר שלום</li><li>שמעון עמיר</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אביעד נתן</li><li>אור עמוס</li><li>איתי חופי</li><li>אמיר תדמור</li><li>ירין שרשבסקי</li><li>עידן מונטנה</li><li>צחי בן עמרם</li></ul></div>
+            </div>
+          </div>
+
+          <div class="drill-card">
+            <div class="drill-title">תדריך 06.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>יקיר הר שלום</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אביעד נתן</li><li>אור עמוס</li><li>איתי חופי</li><li>אמיר תדמור</li><li>ירין שרשבסקי</li><li>עידן מונטנה</li><li>צחי בן עמרם</li><li>שמעון עמיר</li></ul></div>
+            </div>
+          </div></div></td>
+        </tr>
+
+        <tr class="summary-row" onclick="toggleDrill('contractor-8', this)" title="לחצי לפתיחת פירוט נכנסו / לא נכנסו">
+          <td><span class="chev">▸</span>צוות השחר שפלה</td>
+          <td>12</td>
+          <td><span class="pill good">83.3%</span></td>
+          <td><span class="pill mid">75.0%</span></td>
+        </tr>
+        <tr id="contractor-8" class="drill-row">
+          <td colspan="4"><div class="drill-wrap">
+          <div class="drill-card">
+            <div class="drill-title">תדריך 02.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אליה צעידי</li><li>אלמוג חכון</li><li>בן עיני</li><li>ואחו חוצישוילי</li><li>יעקוב דוד מיומן</li><li>מור סבח</li><li>עוז סהר</li><li>עומרי ניצן חסון</li><li>רפי מיראל</li><li>שלומי בן שלוש</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>יוסי חי בר ציון</li><li>שי סויסה</li></ul></div>
+            </div>
+          </div>
+
+          <div class="drill-card">
+            <div class="drill-title">תדריך 06.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אליה צעידי</li><li>אלמוג חכון</li><li>בן עיני</li><li>ואחו חוצישוילי</li><li>יעקוב דוד מיומן</li><li>מור סבח</li><li>עוז סהר</li><li>רפי מיראל</li><li>שלומי בן שלוש</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>יוסי חי בר ציון</li><li>עומרי ניצן חסון</li><li>שי סויסה</li></ul></div>
+            </div>
+          </div></div></td>
+        </tr>
+
+        <tr class="summary-row" onclick="toggleDrill('contractor-9', this)" title="לחצי לפתיחת פירוט נכנסו / לא נכנסו">
+          <td><span class="chev">▸</span>צוות יוביטל חולון בת ים</td>
+          <td>12</td>
+          <td><span class="pill mid">66.7%</span></td>
+          <td><span class="pill mid">66.7%</span></td>
+        </tr>
+        <tr id="contractor-9" class="drill-row">
+          <td colspan="4"><div class="drill-wrap">
+          <div class="drill-card">
+            <div class="drill-title">תדריך 02.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אבירן בן שושן</li><li>אוראל מור</li><li>אלכסנדר בוקובסקי</li><li>אמיר שוואהנה</li><li>חנן ביטון</li><li>יוסי רומנו</li><li>סמואל אובלו</li><li>רוני מולי</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>בוריס ליבשיץ</li><li>מרדכי חנניאייב</li><li>קווין פלדמן</li><li>שחר פניבילוב</li></ul></div>
+            </div>
+          </div>
+
+          <div class="drill-card">
+            <div class="drill-title">תדריך 06.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אבירן בן שושן</li><li>אוראל מור</li><li>אלכסנדר בוקובסקי</li><li>אמיר שוואהנה</li><li>חנן ביטון</li><li>יוסי רומנו</li><li>סמואל אובלו</li><li>רוני מולי</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>בוריס ליבשיץ</li><li>מרדכי חנניאייב</li><li>קווין פלדמן</li><li>שחר פניבילוב</li></ul></div>
+            </div>
+          </div></div></td>
+        </tr>
+
+        <tr class="summary-row" onclick="toggleDrill('contractor-10', this)" title="לחצי לפתיחת פירוט נכנסו / לא נכנסו">
+          <td><span class="chev">▸</span>צוות יוביטל פתח תקווה</td>
+          <td>15</td>
+          <td><span class="pill mid">60.0%</span></td>
+          <td><span class="pill bad">40.0%</span></td>
+        </tr>
+        <tr id="contractor-10" class="drill-row">
+          <td colspan="4"><div class="drill-wrap">
+          <div class="drill-card">
+            <div class="drill-title">תדריך 02.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אבירן גלאי</li><li>בוריס קרמן</li><li>בר סגל</li><li>גל ברוך</li><li>ודים נחמקין</li><li>יוסף וונדם</li><li>ינון רפאלי</li><li>נאור רחמים</li><li>נתנאל רחמים</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אבי אילוז</li><li>אבי בבייב</li><li>דורון כהן</li><li>מוחמד ברגותי</li><li>עמיעד עמר</li><li>רני בר שלום</li></ul></div>
+            </div>
+          </div>
+
+          <div class="drill-card">
+            <div class="drill-title">תדריך 06.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אבירן גלאי</li><li>בר סגל</li><li>גל ברוך</li><li>נאור רחמים</li><li>נתנאל רחמים</li><li>עמיעד עמר</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אבי אילוז</li><li>אבי בבייב</li><li>בוריס קרמן</li><li>דורון כהן</li><li>ודים נחמקין</li><li>יוסף וונדם</li><li>ינון רפאלי</li><li>מוחמד ברגותי</li><li>רני בר שלום</li></ul></div>
+            </div>
+          </div></div></td>
+        </tr>
+
+        <tr class="summary-row" onclick="toggleDrill('contractor-11', this)" title="לחצי לפתיחת פירוט נכנסו / לא נכנסו">
+          <td><span class="chev">▸</span>צוות יוביטל רמת גן גבעתיי</td>
+          <td>11</td>
+          <td><span class="pill good">90.9%</span></td>
+          <td><span class="pill mid">72.7%</span></td>
+        </tr>
+        <tr id="contractor-11" class="drill-row">
+          <td colspan="4"><div class="drill-wrap">
+          <div class="drill-card">
+            <div class="drill-title">תדריך 02.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אלמוג לוי</li><li>אסף נפתליביץ</li><li>גורג  סלאמה</li><li>גלאל אבו נאדי</li><li>חזי רפאלי</li><li>יבגני יוספה</li><li>מוחמד מסארווה</li><li>מוראד אזברגרו</li><li>ניר לשם</li><li>רועי חדד</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אביחי אלקיים</li></ul></div>
+            </div>
+          </div>
+
+          <div class="drill-card">
+            <div class="drill-title">תדריך 06.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>אלמוג לוי</li><li>אסף נפתליביץ</li><li>גורג  סלאמה</li><li>גלאל אבו נאדי</li><li>יבגני יוספה</li><li>מוחמד מסארווה</li><li>ניר לשם</li><li>רועי חדד</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אביחי אלקיים</li><li>חזי רפאלי</li><li>מוראד אזברגרו</li></ul></div>
+            </div>
+          </div></div></td>
+        </tr>
+
+        <tr class="summary-row" onclick="toggleDrill('contractor-12', this)" title="לחצי לפתיחת פירוט נכנסו / לא נכנסו">
+          <td><span class="chev">▸</span>צוות נהגי איסוף בראוו</td>
+          <td>2</td>
+          <td><span class="pill bad">0.0%</span></td>
+          <td><span class="pill bad">0.0%</span></td>
+        </tr>
+        <tr id="contractor-12" class="drill-row">
+          <td colspan="4"><div class="drill-wrap">
+          <div class="drill-card">
+            <div class="drill-title">תדריך 02.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><span class="empty">אין</span></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אלכסי פלדמן</li><li>שחר אבוטבול</li></ul></div>
+            </div>
+          </div>
+
+          <div class="drill-card">
+            <div class="drill-title">תדריך 06.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><span class="empty">אין</span></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אלכסי פלדמן</li><li>שחר אבוטבול</li></ul></div>
+            </div>
+          </div></div></td>
+        </tr>
+
+        <tr class="summary-row" onclick="toggleDrill('contractor-13', this)" title="לחצי לפתיחת פירוט נכנסו / לא נכנסו">
+          <td><span class="chev">▸</span>צוות נהגי איסוף יוביטל</td>
+          <td>5</td>
+          <td><span class="pill bad">40.0%</span></td>
+          <td><span class="pill bad">40.0%</span></td>
+        </tr>
+        <tr id="contractor-13" class="drill-row">
+          <td colspan="4"><div class="drill-wrap">
+          <div class="drill-card">
+            <div class="drill-title">תדריך 02.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>משה גינדי</li><li>שמואל בבייב</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אבי רזניק</li><li>גיא פרחי</li><li>שושן ליאב פהימה</li></ul></div>
+            </div>
+          </div>
+
+          <div class="drill-card">
+            <div class="drill-title">תדריך 06.07</div>
+            <div class="drill-columns">
+              <div class="namebox entered"><h4>נכנסו</h4><ul class="names"><li>משה גינדי</li><li>שמואל בבייב</li></ul></div>
+              <div class="namebox missing"><h4>לא נכנסו</h4><ul class="names"><li>אבי רזניק</li><li>גיא פרחי</li><li>שושן ליאב פהימה</li></ul></div>
+            </div>
+          </div></div></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+<footer>גרסה נקייה למנהלים: KPI עליון + סיכום אחוז כניסות לכל צוות ולכל תדריך + Drill Down בלחיצה על צוות.</footer>
+<script>
+function toggleDrill(id, row) {
+  const detail = document.getElementById(id);
+  const isOpen = detail.style.display === 'table-row';
+  detail.style.display = isOpen ? 'none' : 'table-row';
+  row.classList.toggle('open', !isOpen);
+}
+</script>
+</body>
+</html>
