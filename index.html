@@ -1,185 +1,188 @@
 <!DOCTYPE html>
-<!-- saved from url=(0070)file:///C:/Users/SHastar/Downloads/dashboard_technicians_17_08_26.html -->
+<!-- saved from url=(0073)file:///C:/Users/SHastar/Downloads/dashboard_technicians_24-25_08_26.html -->
 <html lang="he" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>דשבורד תדריכי טכנאים 17.08.26</title>
+<title>דשבורד תדריכי טכנאים 24-25.08.26</title>
 <style>
-:root{--blue:#155eef;--dark:#0b3278;--bg:#f5f7fb;--card:#fff;--ink:#101828;--muted:#667085;--border:#eaecf0;--green:#067647;--greenbg:#ecfdf3;--amber:#b54708;--amberbg:#fffaeb;--red:#b42318;--redbg:#fef3f2}
+:root{--blue:#155eef;--dark:#0b3278;--card:#fff;--ink:#101828;--muted:#667085;--border:#eaecf0;--green:#067647;--greenbg:#ecfdf3;--amber:#b54708;--amberbg:#fffaeb;--red:#b42318;--redbg:#fef3f2}
 *{box-sizing:border-box}body{margin:0;font-family:Arial,'Segoe UI',sans-serif;color:var(--ink);background:linear-gradient(180deg,#eaf2ff 0,#f7f9fc 260px)}.wrap{max-width:1320px;margin:auto;padding:0 24px 44px}
 .hero{padding:34px 0 18px}h1{margin:0;font-size:38px;color:#09234f}.subtitle{margin-top:8px;color:var(--muted)}.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}.pill{padding:8px 13px;border-radius:999px;background:#eaf1ff;border:1px solid #c9dbff;color:#123b7a;font-weight:800;font-size:13px}
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:18px 0}.card,.section{background:var(--card);border:1px solid var(--border);border-radius:22px;box-shadow:0 14px 34px rgba(16,24,40,.08)}.card{padding:20px;position:relative;overflow:hidden}.card:before{content:'';position:absolute;right:0;left:0;top:0;height:4px;background:linear-gradient(90deg,var(--blue),#73a3ff)}.label{font-size:14px;color:var(--muted)}.num{font-size:35px;font-weight:900;margin-top:7px}.note{font-size:13px;color:var(--muted);margin-top:5px}.progress{height:10px;background:#eef2f6;border-radius:999px;overflow:hidden;margin-top:13px}.progress span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--blue),#73a3ff)}
-.section{padding:20px;margin:18px 0}.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}.section-head h2{margin:0;font-size:23px}.section-head span{font-size:13px;color:var(--muted);font-weight:700}.briefing{background:linear-gradient(135deg,#f8fbff,#eef4ff);border:1px solid #d6e6ff;border-radius:18px;padding:18px}.briefing h3{margin:0 0 10px;color:var(--dark);font-size:21px}.topic{display:inline-flex;padding:9px 14px;border-radius:999px;background:#fff;border:1px solid #c9dbff;color:#123b7a;font-weight:800}
+.section{padding:20px;margin:18px 0}.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}.section-head h2{margin:0;font-size:23px}.section-head span{font-size:13px;color:var(--muted);font-weight:700}.brief-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.briefing{background:linear-gradient(135deg,#f8fbff,#eef4ff);border:1px solid #d6e6ff;border-radius:18px;padding:18px}.briefing h3{margin:0 0 12px;color:var(--dark);font-size:20px}.topics{display:flex;flex-wrap:wrap;gap:8px}.topic{display:inline-flex;padding:9px 13px;border-radius:999px;background:#fff;border:1px solid #c9dbff;color:#123b7a;font-weight:800;font-size:13px}
 .toolbar{display:flex;gap:10px}.toolbar input{flex:1;padding:12px 14px;border:1px solid var(--border);border-radius:13px;font-size:14px}.btn{padding:11px 15px;border-radius:13px;border:1px solid #b7c9ff;background:#fff;color:var(--blue);font-weight:900;cursor:pointer}
 table{width:100%;border-collapse:separate;border-spacing:0 8px}th{text-align:right;padding:0 12px;color:#475467;font-size:13px}td{background:#fff;padding:13px 12px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}td:first-child{border-right:1px solid var(--border);border-radius:0 14px 14px 0}td:last-child{border-left:1px solid var(--border);border-radius:14px 0 0 14px}.data-row{cursor:pointer}.data-row:hover td{background:#f8fbff}.team{font-weight:900;color:var(--dark)}.status{display:inline-flex;min-width:68px;justify-content:center;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:900}.good{color:var(--green);background:var(--greenbg)}.mid{color:var(--amber);background:var(--amberbg)}.low{color:var(--red);background:var(--redbg)}
 .drill-row{display:none}.drill-row td{background:#f8fbff!important;border:1px solid #d6e6ff!important;border-radius:16px!important}.drill-box{display:grid;grid-template-columns:1fr 1fr;gap:16px}.drill-col{padding:14px;background:#fff;border:1px solid var(--border);border-radius:16px}.drill-col h4{margin:0 0 10px}.chips{display:flex;flex-wrap:wrap;gap:7px}.chip{padding:6px 10px;border-radius:999px;font-size:13px;border:1px solid #d0d5dd}.chip.in{background:var(--greenbg);border-color:#abefc6}.chip.out{background:var(--redbg);border-color:#fecdca}.empty{color:var(--muted)}.footer{text-align:center;color:var(--muted);font-size:12px;margin-top:20px}
-@media(max-width:900px){.cards,.drill-box{grid-template-columns:1fr}.toolbar{flex-direction:column}h1{font-size:29px}.wrap{padding:0 14px 32px}}
+@media(max-width:900px){.cards,.brief-grid,.drill-box{grid-template-columns:1fr}.toolbar{flex-direction:column}h1{font-size:29px}.wrap{padding:0 14px 32px}}
 </style></head><body><main class="wrap">
-<header class="hero"><h1>דשבורד תדריכי טכנאים</h1><div class="subtitle">מצבת טכנאים פעילים | ספירה יוניקית לפי שם מלא | Drill Down לפי צוות</div><div class="pills"><span class="pill">תדריך טכנאים 17.08.26</span><span class="pill">טכני בית וטכני קבלן</span></div></header>
+<header class="hero"><h1>דשבורד תדריכי טכנאים</h1><div class="subtitle">מצבת טכנאים פעילים | ספירה יוניקית לפי שם מלא | Drill Down לפי צוות</div><div class="pills"><span class="pill">תדריך טכנאים קבלן 24.08.26</span><span class="pill">תדריך טכנאים בית 25.08.26</span></div></header>
 <section class="cards">
-<div class="card"><div class="label">סה״כ חשיפה</div><div class="num">177/283</div><div class="note">62.5% מכלל המצבה</div><div class="progress"><span style="width:62.5%"></span></div></div>
-<div class="card"><div class="label">טכני בית</div><div class="num">75/139</div><div class="note">54.0% חשיפה</div><div class="progress"><span style="width:54.0%"></span></div></div>
-<div class="card"><div class="label">טכני קבלן</div><div class="num">102/144</div><div class="note">70.8% חשיפה</div><div class="progress"><span style="width:70.8%"></span></div></div>
-<div class="card"><div class="label">לא נכנסו</div><div class="num">106</div><div class="note">מתוך 22 צוותים במעקב</div><div class="progress"><span style="width:37.5%"></span></div></div>
+<div class="card"><div class="label">סה״כ חשיפה</div><div class="num">207/274</div><div class="note">75.5% מכלל המצבה</div><div class="progress"><span style="width:75.5%"></span></div></div>
+<div class="card"><div class="label">טכני בית</div><div class="num">106/135</div><div class="note">78.5% חשיפה</div><div class="progress"><span style="width:78.5%"></span></div></div>
+<div class="card"><div class="label">טכני קבלן</div><div class="num">101/139</div><div class="note">72.7% חשיפה</div><div class="progress"><span style="width:72.7%"></span></div></div>
+<div class="card"><div class="label">לא נכנסו</div><div class="num">67</div><div class="note">מתוך 22 צוותים במעקב</div><div class="progress"><span style="width:24.5%"></span></div></div>
 </section>
-<section class="section"><div class="section-head"><h2>התדריך שנבדק</h2><span>17.08.26</span></div><div class="briefing"><h3>תדריך טכנאים 17.08.26</h3><span class="topic">תהליך פתיחת הוראת עבודה לבזק</span></div></section>
+<section class="section"><div class="section-head"><h2>התדריכים שנבדקו</h2><span>24-25.08.26</span></div><div class="brief-grid">
+<div class="briefing"><h3>תדריך טכנאים בית 25.08.26</h3><div class="topics"><span class="topic">ניקוי זכרון בטאבלט</span><span class="topic">סגירת פק"ע סרק בקידוד שלט</span><span class="topic">פתיחת תקלות לבזק</span></div></div>
+<div class="briefing"><h3>תדריך טכנאים קבלן 24.08.26</h3><div class="topics"><span class="topic">ניקוי זכרון בטאבלט</span><span class="topic">סגירת פק"ע סרק בקידוד שלט</span><span class="topic">פתיחת תקלות לבזק</span></div></div>
+</div></section>
 <section class="section"><div class="section-head"><h2>סיכום לכל צוותי בית וקבלן</h2><span>לחיצה על צוות פותחת פירוט</span></div><div class="toolbar"><input id="searchBox" oninput="filterRows()" placeholder="חיפוש צוות או מחלקה"><button class="btn" onclick="expandAll()">פתח הכל</button><button class="btn" onclick="collapseAll()">סגור הכל</button></div></section>
 <section class="section table-section"><div class="section-head"><h2>טכני בית</h2><span>9 צוותים</span></div>
 <table><thead><tr><th>צוות</th><th>נכנסו</th><th>מצבה</th><th>לא נכנסו</th><th>אחוז חשיפה</th></tr></thead><tbody>
 <tr class="data-row" data-team="באר שבע, אשקלון" data-dept="טכני בית" onclick="toggleDrill(&#39;home_0&#39;)">
-<td class="team">באר שבע, אשקלון</td><td>12</td><td>21</td><td>9</td>
-<td><span class="status mid">57.1%</span></td></tr>
+<td class="team">באר שבע, אשקלון</td><td>16</td><td>20</td><td>4</td>
+<td><span class="status good">80.0%</span></td></tr>
 <tr id="home_0" class="drill-row"><td colspan="5"><div class="drill-box">
-<div class="drill-col"><h4>נכנסו (12)</h4><div class="chips"><span class="chip in">אוריאל אפלאלו</span><span class="chip in">איציק וויינגולסקי</span><span class="chip in">אלכסנדר קיגל</span><span class="chip in">דוד אסולין</span><span class="chip in">דמיטרי אנטוסייב</span><span class="chip in">חיים איצקוביץ</span><span class="chip in">יעקב דהן</span><span class="chip in">מיכאל סנדלר</span><span class="chip in">עידו זכות</span><span class="chip in">ערן אפריאט</span><span class="chip in">שלום לוי</span><span class="chip in">שמואל משיחוב</span></div></div>
-<div class="drill-col"><h4>לא נכנסו (9)</h4><div class="chips"><span class="chip out">אולג טקצ'וק</span><span class="chip out">אנדריי טלפין</span><span class="chip out">אפרים פוזיילוב</span><span class="chip out">ארז אזולאי</span><span class="chip out">דמיטרי קולסניק</span><span class="chip out">יואב כץ</span><span class="chip out">יוגב אזרד</span><span class="chip out">מתן אבו</span><span class="chip out">ראמי אלריאטי</span></div></div>
+<div class="drill-col"><h4>נכנסו (16)</h4><div class="chips"><span class="chip in">אולג טקצ'וק</span><span class="chip in">אוריאל אפלאלו</span><span class="chip in">איציק וויינגולסקי</span><span class="chip in">אלכסנדר קיגל</span><span class="chip in">דוד אסולין</span><span class="chip in">דמיטרי אנטוסייב</span><span class="chip in">דמיטרי קולסניק</span><span class="chip in">חיים איצקוביץ</span><span class="chip in">יוגב אזרד</span><span class="chip in">יעקב דהן</span><span class="chip in">מיכאל סנדלר</span><span class="chip in">מתן אבו</span><span class="chip in">עידו זכות</span><span class="chip in">ערן אפריאט</span><span class="chip in">שלום לוי</span><span class="chip in">שמואל משיחוב</span></div></div>
+<div class="drill-col"><h4>לא נכנסו (4)</h4><div class="chips"><span class="chip out">אנדריי טלפין</span><span class="chip out">ארז אזולאי</span><span class="chip out">יואב כץ</span><span class="chip out">ראמי אלריאטי</span></div></div>
 </div></td></tr>
 <tr class="data-row" data-team="גליל גולן" data-dept="טכני בית" onclick="toggleDrill(&#39;home_1&#39;)">
-<td class="team">גליל גולן</td><td>8</td><td>20</td><td>12</td>
-<td><span class="status low">40.0%</span></td></tr>
+<td class="team">גליל גולן</td><td>16</td><td>19</td><td>3</td>
+<td><span class="status good">84.2%</span></td></tr>
 <tr id="home_1" class="drill-row"><td colspan="5"><div class="drill-box">
-<div class="drill-col"><h4>נכנסו (8)</h4><div class="chips"><span class="chip in">בשארה חוראני</span><span class="chip in">הרצל כהן</span><span class="chip in">טארק חמדון</span><span class="chip in">יהב אבו</span><span class="chip in">ליאור טיירי</span><span class="chip in">מוחמד חאסכיה</span><span class="chip in">סרגיי בר</span><span class="chip in">תאופיק עואבדי</span></div></div>
-<div class="drill-col"><h4>לא נכנסו (12)</h4><div class="chips"><span class="chip out">אחמד ח'טיב</span><span class="chip out">אלי מזרחי</span><span class="chip out">זאהר אבו נסרה</span><span class="chip out">מוחמד עבד אל ג'ני</span><span class="chip out">מחמד דחאברה</span><span class="chip out">מיכאל איטח</span><span class="chip out">מיכאל אמת</span><span class="chip out">מיכאל סבג</span><span class="chip out">סאלי מימון שריקי</span><span class="chip out">סלאח אלדין עבד אל קאדר</span><span class="chip out">עלי יוסף עלי ח'טיב</span><span class="chip out">שמואל ממן</span></div></div>
+<div class="drill-col"><h4>נכנסו (16)</h4><div class="chips"><span class="chip in">אלי מזרחי</span><span class="chip in">בשארה חוראני</span><span class="chip in">הרצל כהן</span><span class="chip in">זאהר אבו נסרה</span><span class="chip in">טארק חמדון</span><span class="chip in">יהב אבו</span><span class="chip in">ליאור טיירי</span><span class="chip in">מוחמד חאסכיה</span><span class="chip in">מוחמד עבד אל ג'ני</span><span class="chip in">מיכאל אמת</span><span class="chip in">מיכאל סבג</span><span class="chip in">סלאח אלדין עבד אל קאדר</span><span class="chip in">סרגיי בר</span><span class="chip in">עלי יוסף עלי ח'טיב</span><span class="chip in">שמואל ממן</span><span class="chip in">תאופיק עואבדי</span></div></div>
+<div class="drill-col"><h4>לא נכנסו (3)</h4><div class="chips"><span class="chip out">מחמד דחאברה</span><span class="chip out">מיכאל איטח</span><span class="chip out">סאלי מימון שריקי</span></div></div>
 </div></td></tr>
 <tr class="data-row" data-team="גליל מערבי" data-dept="טכני בית" onclick="toggleDrill(&#39;home_2&#39;)">
-<td class="team">גליל מערבי</td><td>8</td><td>18</td><td>10</td>
-<td><span class="status low">44.4%</span></td></tr>
+<td class="team">גליל מערבי</td><td>15</td><td>17</td><td>2</td>
+<td><span class="status good">88.2%</span></td></tr>
 <tr id="home_2" class="drill-row"><td colspan="5"><div class="drill-box">
-<div class="drill-col"><h4>נכנסו (8)</h4><div class="chips"><span class="chip in">אברהם פרייזלר</span><span class="chip in">איתי כהן</span><span class="chip in">וליד חטיב</span><span class="chip in">חי חיים חריר</span><span class="chip in">ישי יעיש ביטון</span><span class="chip in">עלא סבאח</span><span class="chip in">שלום אליהו בנשימול</span><span class="chip in">תמיר אסולין</span></div></div>
-<div class="drill-col"><h4>לא נכנסו (10)</h4><div class="chips"><span class="chip out">באסל מיערי</span><span class="chip out">ג'ורג' רישא</span><span class="chip out">גיא אמזלג</span><span class="chip out">יוסף חיון</span><span class="chip out">משה ישראל שצקי</span><span class="chip out">פאוזי אבו יונס</span><span class="chip out">רפי יאחיאייב</span><span class="chip out">שאול פאול פרידמן</span><span class="chip out">שמעון בן חמו</span><span class="chip out">תאמר חמוד</span></div></div>
+<div class="drill-col"><h4>נכנסו (15)</h4><div class="chips"><span class="chip in">אברהם פרייזלר</span><span class="chip in">איתי כהן</span><span class="chip in">באסל מיערי</span><span class="chip in">ג'ורג' רישא</span><span class="chip in">גיא אמזלג</span><span class="chip in">וליד חטיב</span><span class="chip in">חי חיים חריר</span><span class="chip in">יוסף חיון</span><span class="chip in">ישי יעיש ביטון</span><span class="chip in">משה ישראל שצקי</span><span class="chip in">עלא סבאח</span><span class="chip in">שלום אליהו בנשימול</span><span class="chip in">שמעון בן חמו</span><span class="chip in">תאמר חמוד</span><span class="chip in">תמיר אסולין</span></div></div>
+<div class="drill-col"><h4>לא נכנסו (2)</h4><div class="chips"><span class="chip out">רפי יאחיאייב</span><span class="chip out">שאול פאול פרידמן</span></div></div>
 </div></td></tr>
 <tr class="data-row" data-team="חדרה-נתניה" data-dept="טכני בית" onclick="toggleDrill(&#39;home_3&#39;)">
-<td class="team">חדרה-נתניה</td><td>11</td><td>14</td><td>3</td>
-<td><span class="status mid">78.6%</span></td></tr>
+<td class="team">חדרה-נתניה</td><td>9</td><td>14</td><td>5</td>
+<td><span class="status mid">64.3%</span></td></tr>
 <tr id="home_3" class="drill-row"><td colspan="5"><div class="drill-box">
-<div class="drill-col"><h4>נכנסו (11)</h4><div class="chips"><span class="chip in">אחמד שרקאוי</span><span class="chip in">אסמרה עלמו</span><span class="chip in">ברק עסיס</span><span class="chip in">דמיטרי נייגורוב</span><span class="chip in">ולדימיר שלמייב</span><span class="chip in">יונתן בעדש</span><span class="chip in">מאגדי עבד אל גני</span><span class="chip in">מקסים סטרובויטוב</span><span class="chip in">מתן אהרוני</span><span class="chip in">נדב מישאל</span><span class="chip in">שמחה יצחק</span></div></div>
-<div class="drill-col"><h4>לא נכנסו (3)</h4><div class="chips"><span class="chip out">אור כתר</span><span class="chip out">יבגני אנטוסייב</span><span class="chip out">עמית קליימן יאגודייב</span></div></div>
+<div class="drill-col"><h4>נכנסו (9)</h4><div class="chips"><span class="chip in">אחמד שרקאוי</span><span class="chip in">ברק עסיס</span><span class="chip in">דמיטרי נייגורוב</span><span class="chip in">ולדימיר שלמייב</span><span class="chip in">יונתן בעדש</span><span class="chip in">מאגדי עבד אל גני</span><span class="chip in">מתן אהרוני</span><span class="chip in">נדב מישאל</span><span class="chip in">שמחה יצחק</span></div></div>
+<div class="drill-col"><h4>לא נכנסו (5)</h4><div class="chips"><span class="chip out">אור כתר</span><span class="chip out">אסמרה עלמו</span><span class="chip out">יבגני אנטוסייב</span><span class="chip out">מקסים סטרובויטוב</span><span class="chip out">עמית קליימן יאגודייב</span></div></div>
 </div></td></tr>
 <tr class="data-row" data-team="ירושלים" data-dept="טכני בית" onclick="toggleDrill(&#39;home_4&#39;)">
-<td class="team">ירושלים</td><td>6</td><td>11</td><td>5</td>
-<td><span class="status mid">54.5%</span></td></tr>
+<td class="team">ירושלים</td><td>8</td><td>11</td><td>3</td>
+<td><span class="status mid">72.7%</span></td></tr>
 <tr id="home_4" class="drill-row"><td colspan="5"><div class="drill-box">
-<div class="drill-col"><h4>נכנסו (6)</h4><div class="chips"><span class="chip in">יוסף חיים ברוך</span><span class="chip in">יוסף עבדול סלאם</span><span class="chip in">יחיא אל חטיב</span><span class="chip in">עיצאם עותמאן</span><span class="chip in">שגיא שם טוב</span><span class="chip in">שי עזרא</span></div></div>
-<div class="drill-col"><h4>לא נכנסו (5)</h4><div class="chips"><span class="chip out">אור דניאל אמזלג</span><span class="chip out">ולרי חיטרי</span><span class="chip out">מאיר נטף</span><span class="chip out">נתנאל עובדיה מזרחי</span><span class="chip out">עוזיאל חזן</span></div></div>
+<div class="drill-col"><h4>נכנסו (8)</h4><div class="chips"><span class="chip in">ולרי חיטרי</span><span class="chip in">יוסף חיים ברוך</span><span class="chip in">יוסף עבדול סלאם</span><span class="chip in">יחיא אל חטיב</span><span class="chip in">מאיר נטף</span><span class="chip in">נתנאל עובדיה מזרחי</span><span class="chip in">עיצאם עותמאן</span><span class="chip in">שי עזרא</span></div></div>
+<div class="drill-col"><h4>לא נכנסו (3)</h4><div class="chips"><span class="chip out">אור דניאל אמזלג</span><span class="chip out">עוזיאל חזן</span><span class="chip out">שגיא שם טוב</span></div></div>
 </div></td></tr>
 <tr class="data-row" data-team="לב השרון" data-dept="טכני בית" onclick="toggleDrill(&#39;home_5&#39;)">
-<td class="team">לב השרון</td><td>6</td><td>13</td><td>7</td>
-<td><span class="status low">46.2%</span></td></tr>
+<td class="team">לב השרון</td><td>10</td><td>13</td><td>3</td>
+<td><span class="status mid">76.9%</span></td></tr>
 <tr id="home_5" class="drill-row"><td colspan="5"><div class="drill-box">
-<div class="drill-col"><h4>נכנסו (6)</h4><div class="chips"><span class="chip in">איציק אטרי</span><span class="chip in">אלי לאוטה</span><span class="chip in">גיא רובינשטיין</span><span class="chip in">משה אזולאי</span><span class="chip in">משה שדה</span><span class="chip in">עמרי אלאלוף</span></div></div>
-<div class="drill-col"><h4>לא נכנסו (7)</h4><div class="chips"><span class="chip out">אבירם ברוך</span><span class="chip out">אליאור גדז'</span><span class="chip out">אלעד לוי</span><span class="chip out">מולונך בלאי</span><span class="chip out">ניקולאי סצ'קוב</span><span class="chip out">עדיאל שמחה איתן טרבלסי</span><span class="chip out">צחי יפרח</span></div></div>
+<div class="drill-col"><h4>נכנסו (10)</h4><div class="chips"><span class="chip in">אבירם ברוך</span><span class="chip in">איציק אטרי</span><span class="chip in">אלי לאוטה</span><span class="chip in">גיא רובינשטיין</span><span class="chip in">משה אזולאי</span><span class="chip in">משה שדה</span><span class="chip in">ניקולאי סצ'קוב</span><span class="chip in">עדיאל שמחה איתן טרבלסי</span><span class="chip in">עמרי אלאלוף</span><span class="chip in">צחי יפרח</span></div></div>
+<div class="drill-col"><h4>לא נכנסו (3)</h4><div class="chips"><span class="chip out">אליאור גדז'</span><span class="chip out">אלעד לוי</span><span class="chip out">מולונך בלאי</span></div></div>
 </div></td></tr>
 <tr class="data-row" data-team="פתח תקווה" data-dept="טכני בית" onclick="toggleDrill(&#39;home_6&#39;)">
-<td class="team">פתח תקווה</td><td>11</td><td>15</td><td>4</td>
-<td><span class="status mid">73.3%</span></td></tr>
+<td class="team">פתח תקווה</td><td>12</td><td>15</td><td>3</td>
+<td><span class="status good">80.0%</span></td></tr>
 <tr id="home_6" class="drill-row"><td colspan="5"><div class="drill-box">
-<div class="drill-col"><h4>נכנסו (11)</h4><div class="chips"><span class="chip in">אבי אסרס</span><span class="chip in">אלי ששון</span><span class="chip in">אלירן דוד שלמה סוטו</span><span class="chip in">חי כהן</span><span class="chip in">יצחק פלס</span><span class="chip in">לוטם אוסמן</span><span class="chip in">ליאל אליהו יונה</span><span class="chip in">מחמוד גבארה</span><span class="chip in">ניר שאבו</span><span class="chip in">עידן נתנאל גרון</span><span class="chip in">רזיאל סקה</span></div></div>
-<div class="drill-col"><h4>לא נכנסו (4)</h4><div class="chips"><span class="chip out">אמיר שרון</span><span class="chip out">יוגב כהן</span><span class="chip out">לירון מנקין</span><span class="chip out">צבי דרך</span></div></div>
+<div class="drill-col"><h4>נכנסו (12)</h4><div class="chips"><span class="chip in">אבי אסרס</span><span class="chip in">אלי ששון</span><span class="chip in">אלירן דוד שלמה סוטו</span><span class="chip in">חי כהן</span><span class="chip in">יצחק פלס</span><span class="chip in">ליאל אליהו יונה</span><span class="chip in">לירון מנקין</span><span class="chip in">מחמוד גבארה</span><span class="chip in">ניר שאבו</span><span class="chip in">עידן נתנאל גרון</span><span class="chip in">צבי דרך</span><span class="chip in">רזיאל סקה</span></div></div>
+<div class="drill-col"><h4>לא נכנסו (3)</h4><div class="chips"><span class="chip out">אמיר שרון</span><span class="chip out">יוגב כהן</span><span class="chip out">לוטם אוסמן</span></div></div>
 </div></td></tr>
 <tr class="data-row" data-team="ראשון לציון, אשדוד" data-dept="טכני בית" onclick="toggleDrill(&#39;home_7&#39;)">
-<td class="team">ראשון לציון, אשדוד</td><td>6</td><td>16</td><td>10</td>
-<td><span class="status low">37.5%</span></td></tr>
+<td class="team">ראשון לציון, אשדוד</td><td>12</td><td>15</td><td>3</td>
+<td><span class="status good">80.0%</span></td></tr>
 <tr id="home_7" class="drill-row"><td colspan="5"><div class="drill-box">
-<div class="drill-col"><h4>נכנסו (6)</h4><div class="chips"><span class="chip in">אושרי סקה</span><span class="chip in">אלכסנדר בנימינוב</span><span class="chip in">נאור נחום מורדוך</span><span class="chip in">נתנאל קליף עשור</span><span class="chip in">רועי רוי בינו</span><span class="chip in">שחר ביטון</span></div></div>
-<div class="drill-col"><h4>לא נכנסו (10)</h4><div class="chips"><span class="chip out">אביחי כלאף</span><span class="chip out">איתי רוזנצבט</span><span class="chip out">אלכסיי נורינסקי</span><span class="chip out">בסיק גאורגיאן</span><span class="chip out">דניאל בוגומולוב</span><span class="chip out">יגאל קורנבליט</span><span class="chip out">יעקב לוי</span><span class="chip out">מני לוי</span><span class="chip out">מתן מלכה</span><span class="chip out">רחמים אליהו</span></div></div>
+<div class="drill-col"><h4>נכנסו (12)</h4><div class="chips"><span class="chip in">אושרי סקה</span><span class="chip in">איתי רוזנצבט</span><span class="chip in">אלכסיי נורינסקי</span><span class="chip in">אלכסנדר בנימינוב</span><span class="chip in">בסיק גאורגיאן</span><span class="chip in">יגאל קורנבליט</span><span class="chip in">יעקב לוי</span><span class="chip in">מתן מלכה</span><span class="chip in">נאור נחום מורדוך</span><span class="chip in">רועי רוי בינו</span><span class="chip in">רחמים אליהו</span><span class="chip in">שחר ביטון</span></div></div>
+<div class="drill-col"><h4>לא נכנסו (3)</h4><div class="chips"><span class="chip out">אביחי כלאף</span><span class="chip out">דניאל בוגומולוב</span><span class="chip out">מני לוי</span></div></div>
 </div></td></tr>
 <tr class="data-row" data-team="רמלה, לוד" data-dept="טכני בית" onclick="toggleDrill(&#39;home_8&#39;)">
-<td class="team">רמלה, לוד</td><td>7</td><td>11</td><td>4</td>
-<td><span class="status mid">63.6%</span></td></tr>
+<td class="team">רמלה, לוד</td><td>8</td><td>11</td><td>3</td>
+<td><span class="status mid">72.7%</span></td></tr>
 <tr id="home_8" class="drill-row"><td colspan="5"><div class="drill-box">
-<div class="drill-col"><h4>נכנסו (7)</h4><div class="chips"><span class="chip in">אילן מקונן</span><span class="chip in">ארסן יעקובוב</span><span class="chip in">בנימין מור</span><span class="chip in">דוד חזן</span><span class="chip in">יוסף יהודה בן חרש</span><span class="chip in">מור מרדכי כדרוך</span><span class="chip in">מנשה שלומי אברהם</span></div></div>
-<div class="drill-col"><h4>לא נכנסו (4)</h4><div class="chips"><span class="chip out">אלמוג אזקיאל</span><span class="chip out">ברק דרסו</span><span class="chip out">נדב-צבי גוטרמן</span><span class="chip out">עלי גאבר</span></div></div>
+<div class="drill-col"><h4>נכנסו (8)</h4><div class="chips"><span class="chip in">אילן מקונן</span><span class="chip in">אלמוג אזקיאל</span><span class="chip in">ארסן יעקובוב</span><span class="chip in">בנימין מור</span><span class="chip in">דוד חזן</span><span class="chip in">יוסף יהודה בן חרש</span><span class="chip in">מור מרדכי כדרוך</span><span class="chip in">מנשה שלומי אברהם</span></div></div>
+<div class="drill-col"><h4>לא נכנסו (3)</h4><div class="chips"><span class="chip out">ברק דרסו</span><span class="chip out">נדב-צבי גוטרמן</span><span class="chip out">עלי גאבר</span></div></div>
 </div></td></tr></tbody></table></section><section class="section table-section"><div class="section-head"><h2>טכני קבלן</h2><span>13 צוותים</span></div>
 <table><thead><tr><th>צוות</th><th>נכנסו</th><th>מצבה</th><th>לא נכנסו</th><th>אחוז חשיפה</th></tr></thead><tbody>
-<tr class="data-row" data-team="צוות בינטק ירושלים באר שב" data-dept="טכני קבלן" onclick="toggleDrill(&#39;contractor_0&#39;)">
-<td class="team">צוות בינטק ירושלים באר שב</td><td>16</td><td>17</td><td>1</td>
-<td><span class="status good">94.1%</span></td></tr>
-<tr id="contractor_0" class="drill-row"><td colspan="5"><div class="drill-box">
-<div class="drill-col"><h4>נכנסו (16)</h4><div class="chips"><span class="chip in">אחמד סעיד</span><span class="chip in">איגור גבר</span><span class="chip in">אליהו מזרחי-</span><span class="chip in">אמין אלנסאסה</span><span class="chip in">יקיר בורפקר</span><span class="chip in">מאיר חג'ג'</span><span class="chip in">מג'ד חסונה</span><span class="chip in">מואייד דענע</span><span class="chip in">מקסים שניידר</span><span class="chip in">מתן עיני</span><span class="chip in">נור דקידק</span><span class="chip in">סרגיי פדיסקו</span><span class="chip in">עבד אבו ג'רביה</span><span class="chip in">עיסא קוואסמה</span><span class="chip in">עמרי שריקי</span><span class="chip in">תמיר חיון</span></div></div>
-<div class="drill-col"><h4>לא נכנסו (1)</h4><div class="chips"><span class="chip out">דאסלין מוצ'יה</span></div></div>
+<tr class="data-row" data-team="צוות בינטק ירושלים באר שב" data-dept="טכני קבלן" onclick="toggleDrill(&#39;con_0&#39;)">
+<td class="team">צוות בינטק ירושלים באר שב</td><td>15</td><td>17</td><td>2</td>
+<td><span class="status good">88.2%</span></td></tr>
+<tr id="con_0" class="drill-row"><td colspan="5"><div class="drill-box">
+<div class="drill-col"><h4>נכנסו (15)</h4><div class="chips"><span class="chip in">אחמד סעיד</span><span class="chip in">איגור גבר</span><span class="chip in">אליהו מזרחי-</span><span class="chip in">אמין אלנסאסה</span><span class="chip in">דאסלין מוצ'יה</span><span class="chip in">יקיר בורפקר</span><span class="chip in">מאיר חג'ג'</span><span class="chip in">מג'ד חסונה</span><span class="chip in">מואייד דענע</span><span class="chip in">מקסים שניידר</span><span class="chip in">מתן עיני</span><span class="chip in">נור דקידק</span><span class="chip in">עבד אבו ג'רביה</span><span class="chip in">עמרי שריקי</span><span class="chip in">תמיר חיון</span></div></div>
+<div class="drill-col"><h4>לא נכנסו (2)</h4><div class="chips"><span class="chip out">סרגיי פדיסקו</span><span class="chip out">עיסא קוואסמה</span></div></div>
 </div></td></tr>
-<tr class="data-row" data-team="צוות בינטק כנות" data-dept="טכני קבלן" onclick="toggleDrill(&#39;contractor_1&#39;)">
+<tr class="data-row" data-team="צוות בינטק כנות" data-dept="טכני קבלן" onclick="toggleDrill(&#39;con_1&#39;)">
 <td class="team">צוות בינטק כנות</td><td>12</td><td>14</td><td>2</td>
 <td><span class="status good">85.7%</span></td></tr>
-<tr id="contractor_1" class="drill-row"><td colspan="5"><div class="drill-box">
-<div class="drill-col"><h4>נכנסו (12)</h4><div class="chips"><span class="chip in">אבי סרידו</span><span class="chip in">אבירם ונונו</span><span class="chip in">אייל אביטל</span><span class="chip in">אסף מועלם</span><span class="chip in">דורון יעקב ניסימוב</span><span class="chip in">ולדימיר ז'ילין</span><span class="chip in">חן אלחנן קינן</span><span class="chip in">יהונתן עקיבא</span><span class="chip in">כפיר ונונו</span><span class="chip in">משה מלכה -</span><span class="chip in">שי אוהד</span><span class="chip in">תאיר מיכאל</span></div></div>
-<div class="drill-col"><h4>לא נכנסו (2)</h4><div class="chips"><span class="chip out">אוראל אביב</span><span class="chip out">בן מריאנובסקי</span></div></div>
+<tr id="con_1" class="drill-row"><td colspan="5"><div class="drill-box">
+<div class="drill-col"><h4>נכנסו (12)</h4><div class="chips"><span class="chip in">אבי סרידו</span><span class="chip in">אבירם ונונו</span><span class="chip in">אסף מועלם</span><span class="chip in">בן מריאנובסקי</span><span class="chip in">דורון יעקב ניסימוב</span><span class="chip in">ולדימיר ז'ילין</span><span class="chip in">חן אלחנן קינן</span><span class="chip in">יהונתן עקיבא</span><span class="chip in">כפיר ונונו</span><span class="chip in">משה מלכה -</span><span class="chip in">שי אוהד</span><span class="chip in">תאיר מיכאל</span></div></div>
+<div class="drill-col"><h4>לא נכנסו (2)</h4><div class="chips"><span class="chip out">אוראל אביב</span><span class="chip out">אייל אביטל</span></div></div>
 </div></td></tr>
-<tr class="data-row" data-team="צוות בראוו צפון" data-dept="טכני קבלן" onclick="toggleDrill(&#39;contractor_2&#39;)">
-<td class="team">צוות בראוו צפון</td><td>8</td><td>16</td><td>8</td>
-<td><span class="status mid">50.0%</span></td></tr>
-<tr id="contractor_2" class="drill-row"><td colspan="5"><div class="drill-box">
-<div class="drill-col"><h4>נכנסו (8)</h4><div class="chips"><span class="chip in">אביתר חזן</span><span class="chip in">אמיר נסיראת</span><span class="chip in">בשאר חטיב</span><span class="chip in">ליא שרים</span><span class="chip in">מוחמד אגבריה</span><span class="chip in">מחמוד עסאמנה</span><span class="chip in">סלמאן קורדאב</span><span class="chip in">רוברטו חזן</span></div></div>
-<div class="drill-col"><h4>לא נכנסו (8)</h4><div class="chips"><span class="chip out">אברהים סראון</span><span class="chip out">ודים יודיצקי</span><span class="chip out">יוסי קוריאט</span><span class="chip out">מוניר ואדי</span><span class="chip out">מורן יעקב</span><span class="chip out">סרגיי קוקלב</span><span class="chip out">עיסאם כיואן</span><span class="chip out">פהד עספור</span></div></div>
+<tr class="data-row" data-team="צוות בראוו צפון" data-dept="טכני קבלן" onclick="toggleDrill(&#39;con_2&#39;)">
+<td class="team">צוות בראוו צפון</td><td>9</td><td>16</td><td>7</td>
+<td><span class="status mid">56.2%</span></td></tr>
+<tr id="con_2" class="drill-row"><td colspan="5"><div class="drill-box">
+<div class="drill-col"><h4>נכנסו (9)</h4><div class="chips"><span class="chip in">אברהים סראון</span><span class="chip in">אמיר נסיראת</span><span class="chip in">בשאר חטיב</span><span class="chip in">לואי אבו חלה</span><span class="chip in">ליא שרים</span><span class="chip in">מוחמד אגבריה</span><span class="chip in">מחמוד עסאמנה</span><span class="chip in">סלמאן קורדאב</span><span class="chip in">רוברטו חזן</span></div></div>
+<div class="drill-col"><h4>לא נכנסו (7)</h4><div class="chips"><span class="chip out">אביתר חזן</span><span class="chip out">ודים יודיצקי</span><span class="chip out">יוסי קוריאט</span><span class="chip out">מוניר ואדי</span><span class="chip out">מורן יעקב</span><span class="chip out">עיסאם כיואן</span><span class="chip out">פהד עספור</span></div></div>
 </div></td></tr>
-<tr class="data-row" data-team="צוות בראוו שרון" data-dept="טכני קבלן" onclick="toggleDrill(&#39;contractor_3&#39;)">
-<td class="team">צוות בראוו שרון</td><td>5</td><td>12</td><td>7</td>
-<td><span class="status low">41.7%</span></td></tr>
-<tr id="contractor_3" class="drill-row"><td colspan="5"><div class="drill-box">
-<div class="drill-col"><h4>נכנסו (5)</h4><div class="chips"><span class="chip in">טארק עומר</span><span class="chip in">מוהנד ח'טיב</span><span class="chip in">עבד עיראקי</span><span class="chip in">רון פליישמן</span><span class="chip in">רסלאן שרים</span></div></div>
-<div class="drill-col"><h4>לא נכנסו (7)</h4><div class="chips"><span class="chip out">אמיר כיואן</span><span class="chip out">חאלד סעד</span><span class="chip out">חיים מרדכי ויטריול</span><span class="chip out">לואי אבו חלה</span><span class="chip out">לירון מיזם</span><span class="chip out">מוחמד כריים</span><span class="chip out">עמרי חסן</span></div></div>
+<tr class="data-row" data-team="צוות בראוו שרון" data-dept="טכני קבלן" onclick="toggleDrill(&#39;con_3&#39;)">
+<td class="team">צוות בראוו שרון</td><td>5</td><td>11</td><td>6</td>
+<td><span class="status low">45.5%</span></td></tr>
+<tr id="con_3" class="drill-row"><td colspan="5"><div class="drill-box">
+<div class="drill-col"><h4>נכנסו (5)</h4><div class="chips"><span class="chip in">אמיר כיואן</span><span class="chip in">לירון מיזם</span><span class="chip in">מוהנד ח'טיב</span><span class="chip in">עמרי חסן</span><span class="chip in">רון פליישמן</span></div></div>
+<div class="drill-col"><h4>לא נכנסו (6)</h4><div class="chips"><span class="chip out">חאלד סעד</span><span class="chip out">חיים מרדכי ויטריול</span><span class="chip out">טארק עומר</span><span class="chip out">מוחמד כריים</span><span class="chip out">עבד עיראקי</span><span class="chip out">רסלאן שרים</span></div></div>
 </div></td></tr>
-<tr class="data-row" data-team="צוות ג.מ.י השרון והסביבה" data-dept="טכני קבלן" onclick="toggleDrill(&#39;contractor_4&#39;)">
-<td class="team">צוות ג.מ.י השרון והסביבה</td><td>7</td><td>11</td><td>4</td>
-<td><span class="status mid">63.6%</span></td></tr>
-<tr id="contractor_4" class="drill-row"><td colspan="5"><div class="drill-box">
-<div class="drill-col"><h4>נכנסו (7)</h4><div class="chips"><span class="chip in">אכרם עויסאת</span><span class="chip in">אסף יוסף חנגאדי</span><span class="chip in">גיאהד עיסי</span><span class="chip in">וליד כבהא</span><span class="chip in">חי פרץ</span><span class="chip in">יהונתן מאיר מוסרי</span><span class="chip in">מולוגטה יהואלשט</span></div></div>
-<div class="drill-col"><h4>לא נכנסו (4)</h4><div class="chips"><span class="chip out">אלון טייב</span><span class="chip out">אריאל הדד</span><span class="chip out">נועם בן סימון</span><span class="chip out">עובדיה חנניה כהן</span></div></div>
+<tr class="data-row" data-team="צוות ג.מ.י השרון והסביבה" data-dept="טכני קבלן" onclick="toggleDrill(&#39;con_4&#39;)">
+<td class="team">צוות ג.מ.י השרון והסביבה</td><td>7</td><td>10</td><td>3</td>
+<td><span class="status mid">70.0%</span></td></tr>
+<tr id="con_4" class="drill-row"><td colspan="5"><div class="drill-box">
+<div class="drill-col"><h4>נכנסו (7)</h4><div class="chips"><span class="chip in">אכרם עויסאת</span><span class="chip in">אלון טייב</span><span class="chip in">אסף יוסף חנגאדי</span><span class="chip in">גיאהד עיסי</span><span class="chip in">וליד כבהא</span><span class="chip in">חי פרץ</span><span class="chip in">יהונתן מאיר מוסרי</span></div></div>
+<div class="drill-col"><h4>לא נכנסו (3)</h4><div class="chips"><span class="chip out">מולוגטה יהואלשט</span><span class="chip out">נועם בן סימון</span><span class="chip out">עובדיה חנניה כהן</span></div></div>
 </div></td></tr>
-<tr class="data-row" data-team="צוות ג.מ.י ווילות" data-dept="טכני קבלן" onclick="toggleDrill(&#39;contractor_5&#39;)">
-<td class="team">צוות ג.מ.י ווילות</td><td>4</td><td>10</td><td>6</td>
-<td><span class="status low">40.0%</span></td></tr>
-<tr id="contractor_5" class="drill-row"><td colspan="5"><div class="drill-box">
-<div class="drill-col"><h4>נכנסו (4)</h4><div class="chips"><span class="chip in">בן צריקאר</span><span class="chip in">דודי לוי</span><span class="chip in">יחיא פינטו</span><span class="chip in">מאיר סבג</span></div></div>
-<div class="drill-col"><h4>לא נכנסו (6)</h4><div class="chips"><span class="chip out">אחמד מצרי</span><span class="chip out">אנטון אולשינסקי</span><span class="chip out">ודיע ריזק</span><span class="chip out">ירון אצילדייב</span><span class="chip out">מגד פרוגה</span><span class="chip out">נביל אבו מוך</span></div></div>
-</div></td></tr>
-<tr class="data-row" data-team="צוות השחר מרכז" data-dept="טכני קבלן" onclick="toggleDrill(&#39;contractor_6&#39;)">
-<td class="team">צוות השחר מרכז</td><td>6</td><td>10</td><td>4</td>
+<tr class="data-row" data-team="צוות ג.מ.י ווילות" data-dept="טכני קבלן" onclick="toggleDrill(&#39;con_5&#39;)">
+<td class="team">צוות ג.מ.י ווילות</td><td>6</td><td>10</td><td>4</td>
 <td><span class="status mid">60.0%</span></td></tr>
-<tr id="contractor_6" class="drill-row"><td colspan="5"><div class="drill-box">
-<div class="drill-col"><h4>נכנסו (6)</h4><div class="chips"><span class="chip in">אביעד נתן</span><span class="chip in">אמיר תדמור</span><span class="chip in">ירין שרשבסקי</span><span class="chip in">עידן מונטנה</span><span class="chip in">צחי בן עמרם</span><span class="chip in">שמעון עמיר</span></div></div>
-<div class="drill-col"><h4>לא נכנסו (4)</h4><div class="chips"><span class="chip out">אור עמוס</span><span class="chip out">איתי חופי</span><span class="chip out">יקיר הר שלום</span><span class="chip out">מתן דוקרקר</span></div></div>
+<tr id="con_5" class="drill-row"><td colspan="5"><div class="drill-box">
+<div class="drill-col"><h4>נכנסו (6)</h4><div class="chips"><span class="chip in">בן צריקאר</span><span class="chip in">דודי לוי</span><span class="chip in">ודיע ריזק</span><span class="chip in">יחיא פינטו</span><span class="chip in">ירון אצילדייב</span><span class="chip in">מאיר סבג</span></div></div>
+<div class="drill-col"><h4>לא נכנסו (4)</h4><div class="chips"><span class="chip out">אחמד מצרי</span><span class="chip out">אנטון אולשינסקי</span><span class="chip out">מגד פרוגה</span><span class="chip out">נביל אבו מוך</span></div></div>
 </div></td></tr>
-<tr class="data-row" data-team="צוות השחר שפלה" data-dept="טכני קבלן" onclick="toggleDrill(&#39;contractor_7&#39;)">
-<td class="team">צוות השחר שפלה</td><td>6</td><td>12</td><td>6</td>
+<tr class="data-row" data-team="צוות השחר מרכז" data-dept="טכני קבלן" onclick="toggleDrill(&#39;con_6&#39;)">
+<td class="team">צוות השחר מרכז</td><td>5</td><td>8</td><td>3</td>
+<td><span class="status mid">62.5%</span></td></tr>
+<tr id="con_6" class="drill-row"><td colspan="5"><div class="drill-box">
+<div class="drill-col"><h4>נכנסו (5)</h4><div class="chips"><span class="chip in">אביעד נתן</span><span class="chip in">אמיר תדמור</span><span class="chip in">ירין שרשבסקי</span><span class="chip in">צחי בן עמרם</span><span class="chip in">שמעון עמיר</span></div></div>
+<div class="drill-col"><h4>לא נכנסו (3)</h4><div class="chips"><span class="chip out">אור עמוס</span><span class="chip out">יקיר הר שלום</span><span class="chip out">עידן מונטנה</span></div></div>
+</div></td></tr>
+<tr class="data-row" data-team="צוות השחר שפלה" data-dept="טכני קבלן" onclick="toggleDrill(&#39;con_7&#39;)">
+<td class="team">צוות השחר שפלה</td><td>10</td><td>11</td><td>1</td>
+<td><span class="status good">90.9%</span></td></tr>
+<tr id="con_7" class="drill-row"><td colspan="5"><div class="drill-box">
+<div class="drill-col"><h4>נכנסו (10)</h4><div class="chips"><span class="chip in">אליה צעידי</span><span class="chip in">אלמוג חכון</span><span class="chip in">בן עיני</span><span class="chip in">ואחו חוצישוילי</span><span class="chip in">יעקוב דוד מיומן</span><span class="chip in">מור סבח</span><span class="chip in">עומרי ניצן חסון</span><span class="chip in">רפי מיראל</span><span class="chip in">שי סויסה</span><span class="chip in">שלומי בן שלוש</span></div></div>
+<div class="drill-col"><h4>לא נכנסו (1)</h4><div class="chips"><span class="chip out">עוז סהר</span></div></div>
+</div></td></tr>
+<tr class="data-row" data-team="צוות יוביטל חולון בת ים" data-dept="טכני קבלן" onclick="toggleDrill(&#39;con_8&#39;)">
+<td class="team">צוות יוביטל חולון בת ים</td><td>6</td><td>10</td><td>4</td>
+<td><span class="status mid">60.0%</span></td></tr>
+<tr id="con_8" class="drill-row"><td colspan="5"><div class="drill-box">
+<div class="drill-col"><h4>נכנסו (6)</h4><div class="chips"><span class="chip in">אלכסנדר בוקובסקי</span><span class="chip in">אמיר שוואהנה</span><span class="chip in">יוסי רומנו</span><span class="chip in">מרדכי חנניאייב</span><span class="chip in">סמואל אובלו</span><span class="chip in">קווין פלדמן</span></div></div>
+<div class="drill-col"><h4>לא נכנסו (4)</h4><div class="chips"><span class="chip out">אבירן בן שושן</span><span class="chip out">בוריס ליבשיץ</span><span class="chip out">חנן ביטון</span><span class="chip out">רוני מולי</span></div></div>
+</div></td></tr>
+<tr class="data-row" data-team="צוות יוביטל פתח תקווה" data-dept="טכני קבלן" onclick="toggleDrill(&#39;con_9&#39;)">
+<td class="team">צוות יוביטל פתח תקווה</td><td>10</td><td>14</td><td>4</td>
+<td><span class="status mid">71.4%</span></td></tr>
+<tr id="con_9" class="drill-row"><td colspan="5"><div class="drill-box">
+<div class="drill-col"><h4>נכנסו (10)</h4><div class="chips"><span class="chip in">אבי אילוז</span><span class="chip in">אבי בבייב</span><span class="chip in">אבירן גלאי</span><span class="chip in">בוריס קרמן</span><span class="chip in">בר סגל</span><span class="chip in">גל ברוך</span><span class="chip in">ליית מסארוה</span><span class="chip in">מוחמד ברגותי</span><span class="chip in">נאור רחמים</span><span class="chip in">נתנאל רחמים</span></div></div>
+<div class="drill-col"><h4>לא נכנסו (4)</h4><div class="chips"><span class="chip out">ודים נחמקין</span><span class="chip out">יוסף וונדם</span><span class="chip out">ינון רפאלי</span><span class="chip out">עמיעד עמר</span></div></div>
+</div></td></tr>
+<tr class="data-row" data-team="צוות יוביטל רמת גן גבעתיי" data-dept="טכני קבלן" onclick="toggleDrill(&#39;con_10&#39;)">
+<td class="team">צוות יוביטל רמת גן גבעתיי</td><td>12</td><td>12</td><td>0</td>
+<td><span class="status good">100.0%</span></td></tr>
+<tr id="con_10" class="drill-row"><td colspan="5"><div class="drill-box">
+<div class="drill-col"><h4>נכנסו (12)</h4><div class="chips"><span class="chip in">אביחי אלקיים</span><span class="chip in">אלמוג לוי</span><span class="chip in">אסף נפתליביץ</span><span class="chip in">גורג סלאמה</span><span class="chip in">גלאל אבו נאדי</span><span class="chip in">חזי רפאלי</span><span class="chip in">יבגני יוספה</span><span class="chip in">מוחמד מסארווה</span><span class="chip in">מוראד אזברגרו</span><span class="chip in">ניר לשם</span><span class="chip in">רועי חדד</span><span class="chip in">רני בר שלום</span></div></div>
+<div class="drill-col"><h4>לא נכנסו (0)</h4><div class="chips"><span class="empty">אין</span></div></div>
+</div></td></tr>
+<tr class="data-row" data-team="צוות נהגי איסוף בראוו" data-dept="טכני קבלן" onclick="toggleDrill(&#39;con_11&#39;)">
+<td class="team">צוות נהגי איסוף בראוו</td><td>1</td><td>2</td><td>1</td>
 <td><span class="status mid">50.0%</span></td></tr>
-<tr id="contractor_7" class="drill-row"><td colspan="5"><div class="drill-box">
-<div class="drill-col"><h4>נכנסו (6)</h4><div class="chips"><span class="chip in">ואחו חוצישוילי</span><span class="chip in">יעקוב דוד מיומן</span><span class="chip in">מור סבח</span><span class="chip in">עומרי ניצן חסון</span><span class="chip in">רפי מיראל</span><span class="chip in">שלומי בן שלוש</span></div></div>
-<div class="drill-col"><h4>לא נכנסו (6)</h4><div class="chips"><span class="chip out">אליה צעידי</span><span class="chip out">אלמוג חכון</span><span class="chip out">בן עיני</span><span class="chip out">יוסי חי בר ציון</span><span class="chip out">עוז סהר</span><span class="chip out">שי סויסה</span></div></div>
+<tr id="con_11" class="drill-row"><td colspan="5"><div class="drill-box">
+<div class="drill-col"><h4>נכנסו (1)</h4><div class="chips"><span class="chip in">אלכסי פלדמן</span></div></div>
+<div class="drill-col"><h4>לא נכנסו (1)</h4><div class="chips"><span class="chip out">שחר אבוטבול</span></div></div>
 </div></td></tr>
-<tr class="data-row" data-team="צוות יוביטל חולון בת ים" data-dept="טכני קבלן" onclick="toggleDrill(&#39;contractor_8&#39;)">
-<td class="team">צוות יוביטל חולון בת ים</td><td>10</td><td>10</td><td>0</td>
-<td><span class="status good">100.0%</span></td></tr>
-<tr id="contractor_8" class="drill-row"><td colspan="5"><div class="drill-box">
-<div class="drill-col"><h4>נכנסו (10)</h4><div class="chips"><span class="chip in">אבירן בן שושן</span><span class="chip in">אלכסנדר בוקובסקי</span><span class="chip in">אמיר שוואהנה</span><span class="chip in">בוריס ליבשיץ</span><span class="chip in">חנן ביטון</span><span class="chip in">יוסי רומנו</span><span class="chip in">מרדכי חנניאייב</span><span class="chip in">סמואל אובלו</span><span class="chip in">קווין פלדמן</span><span class="chip in">רוני מולי</span></div></div>
-<div class="drill-col"><h4>לא נכנסו (0)</h4><div class="chips"><span class="empty">אין</span></div></div>
-</div></td></tr>
-<tr class="data-row" data-team="צוות יוביטל פתח תקווה" data-dept="טכני קבלן" onclick="toggleDrill(&#39;contractor_9&#39;)">
-<td class="team">צוות יוביטל פתח תקווה</td><td>14</td><td>14</td><td>0</td>
-<td><span class="status good">100.0%</span></td></tr>
-<tr id="contractor_9" class="drill-row"><td colspan="5"><div class="drill-box">
-<div class="drill-col"><h4>נכנסו (14)</h4><div class="chips"><span class="chip in">אבי אילוז</span><span class="chip in">אבי בבייב</span><span class="chip in">אבירן גלאי</span><span class="chip in">בוריס קרמן</span><span class="chip in">בר סגל</span><span class="chip in">גל ברוך</span><span class="chip in">ודים נחמקין</span><span class="chip in">יוסף וונדם</span><span class="chip in">ינון רפאלי</span><span class="chip in">ליית מסארוה</span><span class="chip in">מוחמד ברגותי</span><span class="chip in">נאור רחמים</span><span class="chip in">נתנאל רחמים</span><span class="chip in">עמיעד עמר</span></div></div>
-<div class="drill-col"><h4>לא נכנסו (0)</h4><div class="chips"><span class="empty">אין</span></div></div>
-</div></td></tr>
-<tr class="data-row" data-team="צוות יוביטל רמת גן גבעתיי" data-dept="טכני קבלן" onclick="toggleDrill(&#39;contractor_10&#39;)">
-<td class="team">צוות יוביטל רמת גן גבעתיי</td><td>11</td><td>12</td><td>1</td>
-<td><span class="status good">91.7%</span></td></tr>
-<tr id="contractor_10" class="drill-row"><td colspan="5"><div class="drill-box">
-<div class="drill-col"><h4>נכנסו (11)</h4><div class="chips"><span class="chip in">אביחי אלקיים</span><span class="chip in">אסף נפתליביץ</span><span class="chip in">גורג סלאמה</span><span class="chip in">גלאל אבו נאדי</span><span class="chip in">חזי רפאלי</span><span class="chip in">יבגני יוספה</span><span class="chip in">מוחמד מסארווה</span><span class="chip in">מוראד אזברגרו</span><span class="chip in">ניר לשם</span><span class="chip in">רועי חדד</span><span class="chip in">רני בר שלום</span></div></div>
-<div class="drill-col"><h4>לא נכנסו (1)</h4><div class="chips"><span class="chip out">אלמוג לוי</span></div></div>
-</div></td></tr>
-<tr class="data-row" data-team="צוות נהגי איסוף בראוו" data-dept="טכני קבלן" onclick="toggleDrill(&#39;contractor_11&#39;)">
-<td class="team">צוות נהגי איסוף בראוו</td><td>0</td><td>2</td><td>2</td>
-<td><span class="status low">0.0%</span></td></tr>
-<tr id="contractor_11" class="drill-row"><td colspan="5"><div class="drill-box">
-<div class="drill-col"><h4>נכנסו (0)</h4><div class="chips"><span class="empty">אין</span></div></div>
-<div class="drill-col"><h4>לא נכנסו (2)</h4><div class="chips"><span class="chip out">אלכסי פלדמן</span><span class="chip out">שחר אבוטבול</span></div></div>
-</div></td></tr>
-<tr class="data-row" data-team="צוות נהגי איסוף יוביטל" data-dept="טכני קבלן" onclick="toggleDrill(&#39;contractor_12&#39;)">
+<tr class="data-row" data-team="צוות נהגי איסוף יוביטל" data-dept="טכני קבלן" onclick="toggleDrill(&#39;con_12&#39;)">
 <td class="team">צוות נהגי איסוף יוביטל</td><td>3</td><td>4</td><td>1</td>
 <td><span class="status mid">75.0%</span></td></tr>
-<tr id="contractor_12" class="drill-row"><td colspan="5"><div class="drill-box">
+<tr id="con_12" class="drill-row"><td colspan="5"><div class="drill-box">
 <div class="drill-col"><h4>נכנסו (3)</h4><div class="chips"><span class="chip in">גיא פרחי</span><span class="chip in">משה גינדי</span><span class="chip in">שמואל בבייב</span></div></div>
 <div class="drill-col"><h4>לא נכנסו (1)</h4><div class="chips"><span class="chip out">אבי רזניק</span></div></div>
 </div></td></tr></tbody></table></section>
-<div class="footer">דשבורד תדריכי טכנאים | תדריך טכנאים 17.08.26</div></main>
+<div class="footer">דשבורד תדריכי טכנאים | קבלן 24.08.26 | בית 25.08.26</div></main>
 <script>
 function toggleDrill(id){var e=document.getElementById(id);e.style.display=e.style.display==='table-row'?'none':'table-row';}
 function expandAll(){var r=document.querySelectorAll('.drill-row');for(var i=0;i<r.length;i++)r[i].style.display='table-row';}
